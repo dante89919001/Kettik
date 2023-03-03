@@ -17,23 +17,24 @@ export const Header:React.FC<Props> =() =>{
 
             <nav className={styles.nav}>
                 <ul className={styles.nav_list}>
-                    <li className={`${styles.nav_item} ${styles.active}`}>
-                        <a>Главная</a>
+                    <li >
+                        <a className={`${styles.nav_item} ${styles.active}`}>Главная</a>
                     </li>
-                    <li className={styles.nav_item}>
-                        <a>Ивенты</a>
+                    <li >
+                        <a className={styles.nav_item}>Ивенты</a>
                     </li >
-                    <li className={styles.nav_item}>
-                        <a>Журнал</a>
+                    <li >
+                        <a className={styles.nav_item}>Журнал</a>
                     </li>
-                    <li className={styles.nav_item}>
+                    <li>
                         <button className={styles.lang}>ru</button>
                     </li>
-                    <li className={styles.nav_item}>
-                        <a><img src="/assets/header/profile_icon.svg" alt="profile" /></a>
+                    <li >
+                        <a className={styles.nav_item}><img src="/assets/header/profile_icon.svg" alt="profile" /></a>
                     </li>
                 </ul>
             </nav>
+         
         </header>
     )
 }
