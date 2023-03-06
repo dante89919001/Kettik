@@ -9,7 +9,7 @@ export const Banner:React.FC<Props> = () =>{
             <img className="kettik" src="/assets/header/geo.svg"/> 
             <p>Первый и самый надежный <br/>
             портал по поиску мероприятии</p>
-            <button className={styles.button}>Узнать больше</button>
+            <button className={`${styles.button} ${styles.active}`}>Узнать больше</button>
         </div>
         <div className={''}>
             <img src="1.png"/> 
