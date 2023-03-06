@@ -1,0 +1,26 @@
+.EventListWrapper{
+
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+ 
+}
+.EventListHeader{
+    display: flex;
+    justify-content: space-between;
+    max-width: 1280px;
+    width: 100%;
+}
+.EventListTitle{
+    font-family: 'Source Sans Pro';
+    color: #3200FF;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 22px;
+    line-height: 28px;
+}
+.EventListContainer{
+    max-width: 1280px;
+    width: 100%;
+    margin: 0 auto;
+}

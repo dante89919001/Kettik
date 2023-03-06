@@ -15,3 +15,9 @@ export interface Event {
 export type PostFormValues = Omit<Event, 'id'>;
 
 
+export type tempEvent = {
+  img:string;
+  title:string;
+  description:string;
+  date:string;
+}
