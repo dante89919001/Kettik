@@ -6,7 +6,7 @@ export const Banner:React.FC<Props> = () =>{
     return(
         <div className={styles.container}>
         <div className={''}>
-            <img className="kettik" src="/assets/header/geo.svg"/> 
+            <img className={styles.kettik} src="/assets/header/geo.svg"/> 
             <p>Первый и самый надежный <br/>
             портал по поиску мероприятии</p>
             <button className={`${styles.button} ${styles.active}`}>Узнать больше</button>
