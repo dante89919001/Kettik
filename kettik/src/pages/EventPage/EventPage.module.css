@@ -1,0 +1,19 @@
+.EventPageHeader{
+    display: flex;
+    justify-content: space-between;
+    max-width: 1280px;
+    width: 100%;
+}
+.EventPageTitle{
+    font-family: 'Source Sans Pro';
+    color: #0065FF;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 22px;
+    line-height: 28px;
+}
+.EventPageContainer{
+    max-width: 1280px;
+    width: 100%;
+    margin: 0 auto;
+}

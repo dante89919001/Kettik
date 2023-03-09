@@ -24,7 +24,7 @@ export const Header:React.FC<Props> =() =>{
                         <a className={styles.nav_item}>Ивенты</a>
                     </li >
                     <li >
-                        <a className={styles.nav_item}>Журнал</a>
+                        <a className={styles.nav_item}>О проекте</a>
                     </li>
                     <li>
                         <button className={styles.lang}>ru</button>
