@@ -1,0 +1,22 @@
+.btn{
+    height: 39px;
+    background: #FFFFFF;
+    border: 1.5px solid #0065FF;
+    border-radius: 10px;
+    padding: 10px 14px;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.btn.active{
+    background: #0065FF;
+}
+
+.btnText{
+    color: #0065FF;
+}
+
+.btnText.active{
+    color: #E6F0FF;
+}

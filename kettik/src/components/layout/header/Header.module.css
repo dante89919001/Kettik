@@ -30,7 +30,7 @@
 }
 .nav_item{
     list-style: none;
-    font-family: 'Source Sans Pro', sans-serif;    
+    font-family: 'Suisse Intl', sans-serif;    
     font-style: normal;
     font-weight: 400;
     font-size: 16px;
@@ -54,7 +54,7 @@
 .lang{
     background-color:transparent;
     border: none;
-    font-family: 'Source Sans Pro', sans-serif;    
+    font-family: 'Suisse Intl', sans-serif;    
     font-style: normal;
     font-weight: 400;
     font-size: 16px;
@@ -78,7 +78,7 @@
 
 }
 .logo_text{
-    font-family: 'Source Sans Pro';
+    font-family: 'Suisse Intl';
     font-style: normal;
     font-weight: 600;
     font-size: 16px;

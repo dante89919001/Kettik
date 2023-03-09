@@ -3,9 +3,11 @@
     justify-content: space-between;
     max-width: 1280px;
     width: 100%;
+    padding-bottom: 39px;
+    padding-top: 30px;
 }
 .EventPageTitle{
-    font-family: 'Source Sans Pro';
+    font-family: 'Suisse Intl';
     color: #0065FF;
     font-style: normal;
     font-weight: 700;
@@ -16,4 +18,12 @@
     max-width: 1280px;
     width: 100%;
     margin: 0 auto;
+}
+.ButtonContainer{
+    display: flex;
+    gap: 20px;
+}
+.SearchContainer{
+    display: flex;
+    justify-content: space-between;
 }

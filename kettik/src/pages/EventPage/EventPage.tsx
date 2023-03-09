@@ -1,3 +1,4 @@
+import { Button } from "../../components/button/Button"
 import { EventList } from "../../components/Events/eventList/EventList"
 import styles from './EventPage.module.css'
 
@@ -33,11 +34,20 @@ export const EventPage = () =>{
     return(
         <div className={styles.EventPageContainer}>
         <div className={styles.EventPageHeader} >
-        <input type="text" /> 
+        <div className={styles.ButtonContainer}>
+        <Button text={'Последние'} isActive={true}/>
+        <Button text={'Популярные'}/>
+
+        <Button text={'Спортивные'}/>
+        <Button text={'Образовательные'}/>
+        <Button text={'Культурные'}/>
+        </div>
+        <div className={styles.SearchContainer}>
+            <input type="text" />   
+        </div>
         </div>
         <EventList category='Спортивные Мероприятия' Events={temp}/>    
         </div>
       
-   
     )
 }
