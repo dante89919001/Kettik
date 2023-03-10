@@ -6,16 +6,16 @@ export const Banner:React.FC<Props> = () =>{
     return(
         <div className={styles.container}>
         <div className={''}>
-            <img className={styles.kettik} src="/assets/KETTIK.svg"/> 
+            <img className={styles.kettik} src="/assets/banner/logo.svg"/> 
             <p>Первый и самый надежный <br/>
             портал по поиску мероприятии</p>
             <button className={`${styles.button} ${styles.active}`}>Узнать больше</button>
         </div>
         <div className={''}>
-            <img src="1.png"/> 
+            <img src="/assets/banner/1.png"/> 
         </div>
         <div className={''}>
-            <img src="2.png"/> 
+            <img src="/assets/banner/2.png"/> 
         </div>
         </div>
     )
