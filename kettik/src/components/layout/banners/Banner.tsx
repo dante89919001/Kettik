@@ -1,4 +1,4 @@
-import { Button } from '../../button/Button';
+import { NavButton } from '../../button/Button';
 import styles from './Banners.module.css'
 
 type Props = {};
@@ -10,7 +10,7 @@ export const Banner:React.FC<Props> = () =>{
             <img className={styles.kettik} src="/assets/banner/logo.svg"/> 
             <p>Первый и самый надежный <br/>
             портал по поиску мероприятии</p>
-           <Button text='Узнать больше' isActive={true}/>
+           <NavButton text='Узнать больше' path=''/>
         </div>
         <div className={''}>
             <img src="/assets/banner/1.png"/> 

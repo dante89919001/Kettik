@@ -7,16 +7,18 @@
     text-align: center;
     text-decoration: none;
     cursor: pointer;
+    display: inline-block;
 }
 
 .btn.active{
     background: #0065FF;
 }
 
-.btnText{
+.btn > p{
     color: #0065FF;
 }
 
-.btnText.active{
+.btn.active > p{
     color: #E6F0FF;
 }
+

@@ -1,4 +1,5 @@
-import { Button } from "../../components/button/Button"
+import { useState } from "react"
+import { NavButton } from "../../components/button/Button"
 import { EventList } from "../../components/Events/eventList/EventList"
 import styles from './EventPage.module.css'
 
@@ -31,16 +32,17 @@ const temp = [
     
   ]
 export const EventPage = () =>{
+
     return(
         <div className={styles.EventPageContainer}>
         <div className={styles.EventPageHeader} >
         <div className={styles.ButtonContainer}>
-        <Button text={'Последние'} isActive={true}/>
-        <Button text={'Популярные'}/>
+        <NavButton text={'Последние'} />
+        <NavButton text={'Популярные'}/>
 
-        <Button text={'Спортивные'}/>
-        <Button text={'Образовательные'}/>
-        <Button text={'Культурные'}/>
+        <NavButton text={'Спортивные'} path={'events'}></NavButton>
+        <NavButton text={'Образовательные'} path={'events/education'}></NavButton>
+        <NavButton text={'Культурные'} path={'events/culture'}></NavButton>
         </div>
         <div className={styles.SearchContainer}>
             <input type="text" />   

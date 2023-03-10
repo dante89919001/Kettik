@@ -1,16 +1,21 @@
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import styles from './Button.module.css'
 
 type Props={
     text:string;
-    isActive?:boolean;
+    path?:string;
 }
 
-export const Button:React.FC<Props> = ({text ,isActive = false}) =>{
+export const NavButton:React.FC<Props> = ({text ,path}) =>{
 
     return (
-        <button className={isActive ? `${styles.btn} ${styles.active}` : styles.btn }>
-               <p  className={isActive ? `${styles.btnText} ${styles.active}` : styles.btnText}>{text}</p> 
-        </button>
+            <NavLink 
+        to={`/${path}`} 
+        className={({ isActive }) =>
+             isActive ? `${styles.btn} ${styles.active}` : `${styles.btn}`
+          }
+        >
+               <p >{text}</p> 
+        </NavLink>
     )
 } 
