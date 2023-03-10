@@ -1,5 +1,6 @@
 import { useState } from "react"
-import { NavButton } from "../../components/button/Button"
+import {  NavLink } from "react-router-dom"
+import { Button } from "../../components/button/Button"
 import { EventList } from "../../components/Events/eventList/EventList"
 import styles from './EventPage.module.css'
 
@@ -37,12 +38,11 @@ export const EventPage = () =>{
         <div className={styles.EventPageContainer}>
         <div className={styles.EventPageHeader} >
         <div className={styles.ButtonContainer}>
-        <NavButton text={'Последние'} />
-        <NavButton text={'Популярные'}/>
+        <Button text={'Популярные'}/>
 
-        <NavButton text={'Спортивные'} path={'events'}></NavButton>
-        <NavButton text={'Образовательные'} path={'events/education'}></NavButton>
-        <NavButton text={'Культурные'} path={'events/culture'}></NavButton>
+        <NavLink to={'/events/sport'}><Button text={'Спортивные'} isActive={true}/></NavLink>
+        <NavLink to={'/events/education'}><Button text={'Образовательные'}/></NavLink>
+        <NavLink to={'/events/culture'}><Button text={'Культурные'}/></NavLink>
         </div>
         <div className={styles.SearchContainer}>
             <input type="text" />   
