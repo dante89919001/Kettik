@@ -1,30 +1,35 @@
-import { Link, NavLink } from 'react-router-dom';
-import styles from './Header.module.css'
+import { NavLink } from 'react-router-dom'
+import styles from './Footer.module.css'
 
 
-type Props = {};
-
-export const Header:React.FC<Props> =() =>{
-
-    return(
-        <header className={styles.header}>
-            <div className={styles.header_inner_logo}>
-                <NavLink to={'/'} className={styles.logo}><p >KETTIK</p></NavLink>
-                <div className={styles.geo_container}>
-                <img src="/assets/header/geo.svg" alt="geo" />
-                <p className={styles.logo_text}> Алматы</p>
-                </div>
+export const Footer = () =>{
+    return (
+        <footer className={styles.footerContainer}>
+          <div className={styles.footer_box}>
+            <NavLink to={'/'} className={styles.footer_logo}>КЕТТІК</NavLink>
+            <div className={styles.footer_socials}>
+              <a href='#' >
+                <img src="/assets/footer/facebook.svg" alt="facebook" />
+              </a>
+              <a href='#' >
+              <img src="/assets/footer/twitter.svg" alt="twitter" />
+              </a>
+              <a href='#' >
+              <img src="/assets/footer/linkedin.svg" alt="linkedin" />
+              </a>
+              <a href='#' >
+              <img src="/assets/footer/instagram.svg" alt="instagram" />
+              </a>
             </div>
-
-            <nav className={styles.nav}>
+          </div>
+    
+          <nav className={styles.nav}>
                 <ul className={styles.nav_list}>
                     <li >
                         <NavLink to={'/'}
                             className={({ isActive }) =>
                              isActive ? `${styles.nav_item} ${styles.active}` : `${styles.nav_item}`
                           }
-                        
-                        
                         >Главная</NavLink>
                     </li>
                     <li >
@@ -45,17 +50,9 @@ export const Header:React.FC<Props> =() =>{
                     <li>
                         <button className={styles.lang}>ru</button>
                     </li>
-                    <li >
-                        <NavLink to={'/profile'} 
-                        className={({ isActive }) =>
-                        isActive ? `${styles.nav_item} ${styles.active}` : `${styles.nav_item}`
-                     }
-
-                        ><img src="/assets/header/profile_icon.svg" alt="profile" /></NavLink>
-                    </li>
                 </ul>
             </nav>
-         
-        </header>
-    )
+        </footer>
+      )
+
 }
