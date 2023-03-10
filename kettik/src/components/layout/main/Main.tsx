@@ -7,6 +7,7 @@ export const Main:React.FC = () =>{
     return(
         <>
         <Header/>
+        <Banner/>
         <Outlet/>
         {/* Footer */}
         </>

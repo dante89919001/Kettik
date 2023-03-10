@@ -1,4 +1,4 @@
-import { Button } from "../../components/button/Button"
+import { Button } from '../../button/Button';
 import styles from './Banners.module.css'
 
 type Props = {};
@@ -6,11 +6,11 @@ type Props = {};
 export const Banner:React.FC<Props> = () =>{
     return(
         <div className={styles.container}>
-        <div className={''}>
+        <div className={styles.firstBLock}>
             <img className={styles.kettik} src="/assets/banner/logo.svg"/> 
             <p>Первый и самый надежный <br/>
             портал по поиску мероприятии</p>
-            <button className={`${styles.button} ${styles.active}`}>Узнать больше</button>
+           <Button text='Узнать больше' isActive={true}/>
         </div>
         <div className={''}>
             <img src="/assets/banner/1.png"/> 
