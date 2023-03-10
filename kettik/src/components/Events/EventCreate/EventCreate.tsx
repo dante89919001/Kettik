@@ -18,7 +18,7 @@ export const EventCreate:React.FC<tempEvent> = ({img, title, description, date})
             <p className={styles.EventDescription}>{description}</p>
             <div className={styles.dateContainer}>
             <p className={styles.EventDate}>{date}</p>
-            <button className={styles.buttonLike}><img src="/assets/event/like.svg" alt="like" /></button>
+            <button className={styles.buttonLike}><img  src="/assets/event/like.svg" alt="like" /></button>
             </div>
         </div>
     )
