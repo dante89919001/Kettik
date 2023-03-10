@@ -1,3 +1,4 @@
+import { NavLink } from 'react-router-dom';
 import { Button } from '../../button/Button';
 import styles from './Banners.module.css'
 
@@ -10,7 +11,7 @@ export const Banner:React.FC<Props> = () =>{
             <img className={styles.kettik} src="/assets/banner/logo.svg"/> 
             <p>Первый и самый надежный <br/>
             портал по поиску мероприятии</p>
-            <Button text={'Узнать больше'} isActive={true}/>
+            <NavLink to={'/events'}><Button text={'Узнать больше'} isActive={true}/></NavLink>
         </div>
         <div className={''}>
             <img src="/assets/banner/1.png"/> 
