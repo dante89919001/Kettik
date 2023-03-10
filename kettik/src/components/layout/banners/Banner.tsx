@@ -1,3 +1,4 @@
+import { Button } from "../../components/button/Button"
 import styles from './Banners.module.css'
 
 type Props = {};
