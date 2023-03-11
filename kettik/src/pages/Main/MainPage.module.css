@@ -1,4 +1,4 @@
-.EventPageHeader{
+.MainPageHeader{
     display: flex;
     justify-content: space-between;
     max-width: 1280px;
@@ -7,16 +7,16 @@
     padding-top: 30px;
 }
 
-.EventPageContainer{
+.MainPageContainer{
     max-width: 1280px;
     width: 100%;
     margin: 0 auto;
 }
+.MainEventsContainer{
+    max-width: 760px;
+    width: 100%;
+}
 .ButtonContainer{
     display: flex;
     gap: 20px;
-}
-.SearchContainer{
-    display: flex;
-    justify-content: space-between;
 }

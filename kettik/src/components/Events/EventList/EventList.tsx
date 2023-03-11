@@ -12,12 +12,10 @@ type Props = {
 export const EventList:React.FC<Props> = ({category,Events}) =>{
 
     return(
-          
          <div className={styles.EventListContainer}>
-            {Events.map((Ev)=>(
-                <EventCreate img={Ev.img} title={Ev.title} description={Ev.description} date={Ev.date}/>
+            {Events.map((Ev,index)=>(
+                <EventCreate key={index} img={Ev.img} title={Ev.title} description={Ev.description} date={Ev.date}/>
             ))}
         </div>    
-      
     )
 }

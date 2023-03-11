@@ -34,7 +34,6 @@ const temp = [
 export const EducationEventsPage = () =>{
 
     return(
-        <EventList category='Спортивные Мероприятия' Events={temp}/>    
-      
+        <EventList category='Спортивные Мероприятия' Events={temp}/>
     )
 }

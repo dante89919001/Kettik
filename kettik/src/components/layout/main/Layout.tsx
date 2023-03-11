@@ -4,7 +4,7 @@ import { Footer } from "../footer/Footer"
 import { Header } from "../header/Header"
 
 
-export const Main:React.FC = () =>{
+export const Layout:React.FC = () =>{
     return(
         <>
         <Header/>

@@ -5,13 +5,14 @@ import {
   Route,
   RouterProvider,
 } from 'react-router-dom';
-import { Main } from './components/layout/main/Main';
+import { Layout } from './components/layout/main/Layout';
 import { SportEventsPage } from './pages/EventsPages/SportEventsPage/SportEventsPage';
 import { EducationEventsPage } from './pages/EventsPages/EducationEventsPage/EducationEvenetsPage';
 import { EventPage } from './pages/EventsPages/MainEventsPage/EventPage';
 import { CultureEventsPage } from './pages/EventsPages/CultureEventsPage/CultureEventsPage';
 import { PopularEventsPage } from './pages/EventsPages/PopularEventsPage/PopularEventsPage';
 import { LastEventsPage } from './pages/EventsPages/LastEventsPage/LastEventsPage';
+import { MainPage } from './pages/Main/MainPage';
 
 function App() {
  
@@ -20,7 +21,8 @@ function App() {
 const router = createBrowserRouter(
   createRoutesFromElements(
     <>
-      <Route path="/" element={<Main/>}>
+      <Route path="/" element={<Layout/>}>
+      <Route index element={<MainPage />}/>
       <Route path="/events" element={<EventPage />}>
       <Route  index element={<LastEventsPage/>}/>
       <Route path="/events/popular" element={<PopularEventsPage/>}/>
