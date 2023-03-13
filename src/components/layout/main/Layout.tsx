@@ -8,7 +8,6 @@ export const Layout:React.FC = () =>{
     return(
         <>
         <Header/>
-        <Banner/>
         <Outlet/>
         <Footer/>
         </>

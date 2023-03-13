@@ -21,16 +21,20 @@
   .firstBLock{
     max-width: 642px;
     width: 100%;
-    padding: 60px 0px 0px 60px;
+    padding: 40px 0px 0px 40px;
 
   }
   
-  .ii{
-    margin-top: 27px;
-    margin-bottom: 43px;
+  .BannerTitle{
     font-family: 'Nunito Sans';
     color: #0065FF;
+    font-style: normal;
     font-weight: 800;
-
+    font-size: 40px;
+    line-height: 55px;
+    margin-bottom: 20px;
   }
- 
+ .eventsVer{
+    max-width: 1060px;
+    width: 100%;
+}

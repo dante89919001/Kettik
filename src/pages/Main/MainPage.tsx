@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { Button } from '../../components/button/Button'
+import { Banner } from '../../components/layout/banners/Banner';
 import { EducationEventsPage } from '../EventsPages/EducationEventsPage/EducationEvenetsPage'
 import styles from './MainPage.module.css'
 
@@ -43,6 +44,8 @@ export const MainPage = () =>{
         
     }
     return (
+        <>
+            <Banner isMain={true}/>
         <div className={styles.MainPageContainer}>
         <div className={styles.MainEventsContainer}>
         <div className={styles.MainPageHeader} >
@@ -57,5 +60,7 @@ export const MainPage = () =>{
              <EducationEventsPage />
         </div>
         </div>
+        </>
+  
     )
 }

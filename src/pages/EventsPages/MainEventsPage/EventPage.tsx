@@ -1,5 +1,6 @@
 import {  NavLink, Outlet } from "react-router-dom"
 import { Button } from "../../../components/button/Button"
+import { Banner } from "../../../components/layout/banners/Banner"
 import styles from './EventPage.module.css'
 
 
@@ -7,6 +8,8 @@ import styles from './EventPage.module.css'
 export const EventPage = () =>{
 
     return(
+        <>
+        <Banner isMain={false}/>
         <div className={styles.EventPageContainer}>
         <div className={styles.EventPageHeader} >
         <div className={styles.ButtonContainer}>
@@ -40,6 +43,8 @@ export const EventPage = () =>{
         </div>
             <Outlet/>
         </div>
+        </>
+ 
       
     )
 }
