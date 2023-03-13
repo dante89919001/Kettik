@@ -7,11 +7,11 @@ type Props = {};
 export const Banner:React.FC<Props> = () =>{
     return(
         <div className={styles.container}>
-        <div className={''}>
-            <img className={styles.kettik} src="/assets/banner/logo.svg"/> 
-            <p>Первый и самый надежный <br/>
-            портал по поиску мероприятии</p>
-            <NavLink to={'/events'}><Button text={'Узнать больше'} isActive={true}/></NavLink>
+        <div className={styles.firstBLock}>
+            <h2 className={styles.ii}>События, которые не стоит <br/>
+            пропустить: календарь <br/>
+            мероприятий нашего города </h2>
+            <NavLink to={'/events'} className={styles.btn}><Button text={'Kettik!'} isActive={true} width={193}/></NavLink>
         </div>
         <div className={''}>
             <img src="/assets/banner/1.png"/> 
@@ -21,7 +21,9 @@ export const Banner:React.FC<Props> = () =>{
         </div>
         </div>
     )
+     
 
 }
+
 
 
