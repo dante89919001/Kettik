@@ -1,5 +1,5 @@
 import { tempEvent } from '../../../types/event';
-import { EventCreate } from '../eventCreate/EventCreate';
+import { EventCreate } from '../EventCreate/EventCreate';
 import styles from './EventList.module.css'
 
 

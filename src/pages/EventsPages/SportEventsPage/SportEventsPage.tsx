@@ -1,7 +1,7 @@
 import { useState } from "react"
 import {  NavLink } from "react-router-dom"
 import { Button } from "../../../components/button/Button"
-import { EventList } from "../../../components/Events/eventList/EventList"
+import { EventList } from "../../../components/Events/EventList/EventList"
 
 
 const temp = [
