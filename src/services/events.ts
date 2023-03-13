@@ -28,6 +28,7 @@ export const getEvents = () => {
     return axios
       .get<Event[]>(`${REACT_APP_API_ROOT}/events`, {})
       .then((res) => res.data);
+      
   };
 
 
