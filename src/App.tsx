@@ -13,11 +13,10 @@ import { CultureEventsPage } from './pages/EventsPages/CultureEventsPage/Culture
 import { PopularEventsPage } from './pages/EventsPages/PopularEventsPage/PopularEventsPage';
 import { LastEventsPage } from './pages/EventsPages/LastEventsPage/LastEventsPage';
 import { MainPage } from './pages/Main/MainPage';
+import { EventsDetailsPage } from './pages/EventsPages/EventsDetailPage/EventsDetailsPage';
 
 function App() {
  
-/*  
- */
 const router = createBrowserRouter(
   createRoutesFromElements(
     <>
@@ -31,6 +30,8 @@ const router = createBrowserRouter(
       <Route path="/events/culture" element={<CultureEventsPage/>}/>
       </Route>
       </Route>
+      <Route path="/events/:id" element={<EventsDetailsPage />} />
+
     </>
   )
 );

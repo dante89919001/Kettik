@@ -1,23 +1,20 @@
-import { tempEvent } from '../../../types/event';//Временно
+import { Link, useParams } from 'react-router-dom';
+import { Events } from '../../../types/event';
 import styles from './Event.module.css'
 
-type Props = {
-    img:string;
-    title:string;
-    description:string;
-    date:string;
-
-};
 
 
-export const EventCreate:React.FC<tempEvent> = ({img, title, description, date}) =>{
+
+export const EventCreate:React.FC<Events> = ({imageUrls, name, description, dateTime, id}) =>{
+
+
     return (
         <div className={styles.EventContainer}>
-            <img className={styles.EventImg} src={img} alt="EventImg" />
-            <h3 className={styles.EventTitle}>{title}</h3>
+            <Link to={`/events/${id}`}> <img className={styles.EventImg} src={imageUrls[0]} alt="EventImg" /></Link>
+            <h3 className={styles.EventTitle}>{name}</h3>
             <p className={styles.EventDescription}>{description}</p>
             <div className={styles.dateContainer}>
-            <p className={styles.EventDate}>{date}</p>
+            <p className={styles.EventDate}>{dateTime}</p>
             <button className={styles.buttonLike}><img  src="/assets/event/like.svg" alt="like" /></button>
             </div>
         </div>

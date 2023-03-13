@@ -1,20 +1,19 @@
-import { tempEvent } from '../../../types/event';
+import { Events } from '../../../types/event';
 import { EventCreate } from '../EventCreate/EventCreate';
 import styles from './EventList.module.css'
 
 
 type Props = {
-    category:string;
-    Events:tempEvent[]//Временно
+    Events:Events[]//Временно
 }
 
 
-export const EventList:React.FC<Props> = ({category,Events}) =>{
+export const EventList:React.FC<Props> = ({Events}) =>{
 
     return(
          <div className={styles.EventListContainer}>
-            {Events.map((Ev,index)=>(
-                <EventCreate key={index} img={Ev.img} title={Ev.title} description={Ev.description} date={Ev.date}/>
+            {Events.map((Ev)=>(
+                <EventCreate key={Ev.id} id={Ev.id} imageUrls={Ev.imageUrls} name={Ev.name} description={Ev.description} dateTime={Ev.dateTime}/>
             ))}
         </div>    
     )

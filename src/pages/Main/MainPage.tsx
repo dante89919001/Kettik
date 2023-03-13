@@ -47,20 +47,15 @@ export const MainPage = () =>{
         <div className={styles.MainEventsContainer}>
         <div className={styles.MainPageHeader} >
         <div className={styles.ButtonContainer}>
-
          {activeButtons.map((button:object, index )=>{
                 const textButton:string = Object.keys(button)[0];
                 const isActive:boolean = Object.values(button)[0];
                 return <Button key={index} text={textButton} isActive={isActive} onClick={handleChangeFilter}/>
          })}
-
-       
         </div>
-    
         </div>
              <EducationEventsPage />
         </div>
-
         </div>
     )
 }

@@ -1,23 +1,15 @@
-export interface Event {
+export interface Events {
     id:string;
     name:string;
     description:string;
-    category:string;
-    location:string;
-    likes:number;
-    date:string;
-    time:string;
-    organizer:string;
-    dateOfCreation:string;
+    category?:string;
+    location?:string;
+    likes?:number;
+    dateTime:string;
+    organizer?:string;
+    dateOfCreation?:string;
     imageUrls:string[];
   }
 
 export type PostFormValues = Omit<Event, 'id'>;
 
-
-export type tempEvent = {
-  img:string;
-  title:string;
-  description:string;
-  date:string;
-}
