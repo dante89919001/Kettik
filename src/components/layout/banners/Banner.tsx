@@ -17,11 +17,11 @@ export const Banner:React.FC<Props> = ({isMain}) =>{
             <h2 className={styles.BannerTitle}>События, которые не стоит пропустить: календарь мероприятий нашего города </h2>
             <NavLink to={'/events'} className={styles.btn}><Button text={'Kettik!'} isActive={true} width={193}/></NavLink>
         </div>
-        <div className={''}>
-            <img src="/assets/banner/1.png"/> 
+        <div >
+            <img className={styles.BannerImg} src="/assets/banner/1.png"/> 
         </div>
-        <div className={''}>
-            <img src="/assets/banner/2.png"/> 
+        <div >
+            <img className={styles.BannerImg} src="/assets/banner/2.png"/> 
         </div>
         </div>
     

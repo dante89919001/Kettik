@@ -13,3 +13,6 @@ export interface Events {
 
 export type PostFormValues = Omit<Event, 'id'>;
 
+export type commets = {
+    comment:string
+}

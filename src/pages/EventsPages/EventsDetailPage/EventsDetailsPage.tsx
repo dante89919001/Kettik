@@ -1,9 +1,12 @@
 import { useEffect, useState } from 'react';
-import { Link, useParams } from 'react-router-dom';
+import { useForm } from 'react-hook-form';
+import { useParams } from 'react-router-dom';
+import { CommentPostForm } from '../../../components/FromComments/FormComments';
 import { Footer } from '../../../components/layout/footer/Footer';
 import { Header } from '../../../components/layout/header/Header';
-import { getEvent, temp } from '../../../services/events';
-import { Events } from '../../../types/event';
+import useDate from '../../../hooks/useDate';
+import { getEvent} from '../../../services/events';
+import { commets, Events } from '../../../types/event';
 import styles from './EventsDetailsPage.module.css'
 
 
@@ -22,24 +25,13 @@ const initialValues =    {
        ]
 }
 
+
+
+
 export const EventsDetailsPage = () =>{
     const [event, setEvent] = useState<Events>(initialValues);
     const [comments,setComments] = useState();
-
-
-    const getWeekMonth = () => {
-        const month = ['Января', 'Февраля', 'Марта', 'Апреля', 'Мая', 'Июня', 'Июля', 'Августа', 'Сентября', 'Октября', 'Ноября', 'Декабря'];
-        let date = new Date(event.dateTime)
-        let day = date.toISOString().slice(8,10) >= '10' ? date.toISOString().slice(8,10) : date.toISOString().slice(9,10)
-        return `${day} ${month[date.getMonth()]}`;
-      }
-    
-    const getTime = () =>{
-        let date = new Date(event.dateTime)
-     
-        return  `${date.getHours()}:${date.getMinutes()}`;
-    }
-
+    const {getWeekMonth, getTime} = useDate(event.dateTime);
       
 
     const { id } = useParams();
@@ -53,7 +45,10 @@ export const EventsDetailsPage = () =>{
         });
       }, [id]);
      */
-    
+      const handleSubmit = async (data: commets) => {
+        console.log(data);
+        
+    };
 
 
     return (
@@ -99,8 +94,8 @@ export const EventsDetailsPage = () =>{
               
             </div>
             <div className={styles.CommentsContainer}>
-                <h3 className={styles.CommentsTitle}>Комментарии</h3>
-
+            <h3 className={styles.CommentsTitle}>Комментарии</h3>
+                <CommentPostForm onSubmit={handleSubmit} />
             </div>
         </div>
         <Footer/>
