@@ -1,14 +1,15 @@
 import { useEffect, useState } from "react";
 import { getEvents } from "../services/events";
+import { Events } from "../types/event";
 
 
 const useRequire = (filter:string) => {
 
-    const [events,setEvents] = useState<Event[]>([]);
+    const [events,setEvents] = useState<Events[]>([]);
     const [url,setUrl] = useState(filter);
 
     useEffect(()=>{
-        getEvents().then((res)=>{
+        getEvents(url).then((res)=>{
                 setEvents(res);
         });
         

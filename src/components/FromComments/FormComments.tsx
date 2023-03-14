@@ -4,7 +4,7 @@ import { Button } from "../button/Button";
 import { FormInput } from "../ui/FormInput/FormInput";
 
 const defaultValues:commets  = {
-  comment: ""
+  message: ""
 };
 type Props = {
   onSubmit: (data: commets) => void;
@@ -28,7 +28,7 @@ export const CommentPostForm: React.FC<Props> = ({onSubmit }) => {
         <h3></h3>
         <Controller
           control={control}
-          name="comment"
+          name="message"
           rules={{
             required: true,
             maxLength: {

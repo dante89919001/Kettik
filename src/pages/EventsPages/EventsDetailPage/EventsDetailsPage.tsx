@@ -5,7 +5,7 @@ import { CommentPostForm } from '../../../components/FromComments/FormComments';
 import { Footer } from '../../../components/layout/footer/Footer';
 import { Header } from '../../../components/layout/header/Header';
 import useDate from '../../../hooks/useDate';
-import { getEvent} from '../../../services/events';
+import { createComment, getComments, getEvent} from '../../../services/events';
 import { commets, Events } from '../../../types/event';
 import styles from './EventsDetailsPage.module.css'
 
@@ -25,29 +25,59 @@ const initialValues =    {
        ]
 }
 
+const initialValuesComments = [
+    {
+        "id": "xJA94YYBny28N1lbVBvK",
+        "eventId": "w5At4YYBny28N1lb9RtO",
+        "message": "good event",
+        "dateOfCreation": "2023-03-14T23:48:58.392"
+    },
+    {
+        "id": "xJA94YYBny28N1lbVBvK",
+        "eventId": "w5At4YYBny28N1lb9RtO",
+        "message": "Danil Vasiliy",
+        "dateOfCreation": "2023-03-14T23:48:58.392"
+    },
+    {
+        "id": "xJA94YYBny28N1lbVBvK",
+        "eventId": "w5At4YYBny28N1lb9RtO",
+        "message": "Ivan Krasavchik",
+        "dateOfCreation": "2023-03-14T23:48:58.392"
+    }
+]
 
 
 
 export const EventsDetailsPage = () =>{
     const [event, setEvent] = useState<Events>(initialValues);
-    const [comments,setComments] = useState();
+    const [comments,setComments] = useState<commets[]>(initialValuesComments);
     const {getWeekMonth, getTime} = useDate(event.dateTime);
-      
 
     const { id } = useParams();
 
- /*    useEffect(() => {
+    useEffect(() => {
         if (!id) {
           return;
         }
         getEvent(id).then((res) => {
             setEvent(res);
         });
+
+        getComments(id).then((res)=>{
+            setComments(res);
+        
+        })
       }, [id]);
-     */
+
+
+    
+    
       const handleSubmit = async (data: commets) => {
         console.log(data);
-        
+        if (!id) {
+            return;
+          }
+        createComment(id,data)
     };
 
 
@@ -96,6 +126,12 @@ export const EventsDetailsPage = () =>{
             <div className={styles.CommentsContainer}>
             <h3 className={styles.CommentsTitle}>Комментарии</h3>
                 <CommentPostForm onSubmit={handleSubmit} />
+            <div>
+                    {comments?.map((comment)=>{
+                            return <p className={styles.comment}>{comment.message}</p>
+                    })}
+            </div>
+              
             </div>
         </div>
         <Footer/>

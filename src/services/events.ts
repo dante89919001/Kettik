@@ -1,6 +1,9 @@
 import axios from 'axios';
+import { commets, Events } from '../types/event';
 
 const REACT_APP_API_ROOT = 'back'
+
+const COMMENT_APP_API_ROOT = 'http://localhost:8080/comment-api'
 
 export const temp =[
     {
@@ -65,30 +68,53 @@ export const temp =[
   ]
 
 
-export const getEvents = () => {
+  export const getEvents = (filter:string) => {
     return axios
-      .get<Event[]>(`${REACT_APP_API_ROOT}/events`, {})
-      .then((res) => res.data);
+      .get(`${REACT_APP_API_ROOT}/event/${filter}`, {})
+      .then((res) => res.data)
+      .then<Events[]>((res)=>res.content)
 
   };
+
+
 
 
 export const getEvent = (id:string) =>{
     return axios
-        .get<Event>(`${REACT_APP_API_ROOT}/events/id`, {})
+        .get<Events>(`${REACT_APP_API_ROOT}/event/${id}`, {})
         .then((res)=>res.data);
 }
 
-export const createEvent = (data:Event) => {
+export const createEvent = (data:Events) => {
     return axios
-      .post(`${REACT_APP_API_ROOT}/events`, data)
+      .post(`${REACT_APP_API_ROOT}/event`, data)
       .then((res) => res.data);
   };
-  
 
-  export const updateEvent = (id: string, data:Event) => {
+  export const updateEvent = (id: string, data:Events) => {
     return axios
-      .put(`${REACT_APP_API_ROOT}/events/${id}`, data)
+      .put(`${REACT_APP_API_ROOT}/event/${id}`, data)
+      .then((res) => res.data);
+  };
+
+  export const deleteEvent = (id:string) =>{
+    return axios
+        .delete<Events>(`${REACT_APP_API_ROOT}/event/${id}`, {})
+        .then((res)=>res);
+}
+
+
+  export const getComments = (id:string) => {
+    return axios
+      .get(`${COMMENT_APP_API_ROOT}/event/${id}/comment/all`, {})
+      .then((res) => res.data)
+      .then<commets[]>((res)=>res.content)
+
+  };
+
+  export const createComment = (id:string,data:commets) => {
+    return axios
+      .post(`${COMMENT_APP_API_ROOT}/event/${id}/comment`, data)
       .then((res) => res.data);
   };
   
