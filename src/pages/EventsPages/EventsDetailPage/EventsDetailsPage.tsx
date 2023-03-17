@@ -62,7 +62,12 @@ const EventsDetailsPage = () => {
     getEvent(id).then((res) => {
       setEvent(res);
     });
+  }, [id]);
 
+  useEffect(() => {
+    if (!id) {
+      return;
+    }
     getComments(id).then((res) => {
       setComments(res);
     });
