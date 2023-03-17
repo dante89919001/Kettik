@@ -1,0 +1,56 @@
+include:
+  - project: 'cicd/gitlab-ci'
+    file: 'single/single-pipeline-npm-gitlab-ci.yaml'
+
+stages:
+  - repository
+  - nodejs-docker-build
+  - helm-package
+  - deploy
+
+## ============== DEV ===========
+
+repository-dev:
+  extends: .repository
+  only:
+    refs:
+      - develop
+  tags:
+    - prod-aws-eu-west
+
+helm-package-dev:
+  extends: .helm-package
+  variables:
+    CLUSTER: dev-aws
+  environment:
+    name: dev
+  only:
+    refs:
+      - develop
+  tags:
+    - prod-aws-eu-west
+
+nodejs-docker-build-dev:
+  extends: .nodejs-docker-build
+  variables:
+    CLUSTER: dev-aws
+    ENV: dev
+  environment:
+    name: dev
+  only:
+    refs:
+      - develop
+  tags:
+    - prod-aws-eu-west
+
+deploy-dev:
+  extends: .deploy
+  variables:
+    CLUSTER: dev-aws
+  environment:
+    name: dev
+  only:
+    refs:
+      - develop
+  tags:
+    - prod-aws-eu-west
