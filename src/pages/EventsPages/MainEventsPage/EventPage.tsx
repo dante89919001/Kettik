@@ -2,15 +2,16 @@ import {  NavLink, Outlet } from "react-router-dom"
 import { Button } from "../../../components/button/Button"
 import { Banner } from "../../../components/layout/banners/Banner"
 import useRequire from "../../../hooks/useRequire"
+import { Events } from "../../../types/event"
 import styles from './EventPage.module.css'
 
 
 
 export const EventPage = () =>{
 
-
-    const {events,url,handleChangeFilter} = useRequire('all');
-
+    const handleSearch = (events:Events[]) =>{
+        
+    }
 
     return(
         <>

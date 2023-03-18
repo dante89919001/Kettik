@@ -1,0 +1,26 @@
+.EventFormContainer{
+    margin-left: 61px;
+    margin-top: 35px;
+    max-width: 750px;
+    padding-bottom: 20px;
+}
+.title{
+    font-family: 'Nunito Sans';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 25px;
+    color: #96C0FF;
+    text-align: center;
+}
+.headerContainer{
+
+    max-width: 218px; 
+    width: 100%;   
+}
+
+.navLinkContainer{
+    text-decoration: none;
+    display: flex;
+    gap: 10px;
+}

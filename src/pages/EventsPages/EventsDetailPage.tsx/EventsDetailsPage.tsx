@@ -18,6 +18,9 @@ const initialValues =  [{
         "/assets/KETTIK.svg"     
        ]
 }]  
+
+
+
 export const EventsDetailsPage = () => {
 
     const {category} = useParams();

@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { useParams } from 'react-router-dom';
-import { CommentPostForm } from '../../../components/FromComments/FormComments';
+import { CommentPostForm } from '../../../components/Forms/FromComments/FormComments';
 import { Footer } from '../../../components/layout/footer/Footer';
 import { Header } from '../../../components/layout/header/Header';
 import { createComment, getComments, getEvent} from '../../../services/events';

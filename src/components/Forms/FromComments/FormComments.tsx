@@ -1,7 +1,7 @@
 import { Controller, useForm } from "react-hook-form";
-import { commets } from "../../types/event";
-import { Button } from "../button/Button";
-import { FormInput } from "../ui/FormInput/FormInput";
+import { commets } from "../../../types/event";
+import { Button } from "../../button/Button";
+import { FormInput } from "../../ui/FormInput/FormInput";
 
 const defaultValues:commets  = {
   message: ""
@@ -39,7 +39,7 @@ export const CommentPostForm: React.FC<Props> = ({onSubmit }) => {
            }} 
   
           render={({ field: { onChange, value, name } }) => (
-            <FormInput  placeholder="Напишите ваш комментарий" value={value} name={name} onChange={onChange}/>
+            <FormInput label="" placeholder="Напишите ваш комментарий" value={value} name={name} onChange={onChange}/>
           )}
         />
      
