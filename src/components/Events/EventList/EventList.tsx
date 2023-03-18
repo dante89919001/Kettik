@@ -5,15 +5,16 @@ import styles from './EventList.module.css'
 
 type Props = {
     Events:Events[]//Временно
+    gap?:number
 }
 
 
-export const EventList:React.FC<Props> = ({Events}) =>{
+export const EventList:React.FC<Props> = ({Events,gap = 100}) =>{
 
     return(
-         <div className={styles.EventListContainer}>
+         <div className={styles.EventListContainer} style={{gap:`${gap}px`}}>
             {Events.map((Ev)=>(
-                <EventCreate key={Ev.id} id={Ev.id} imageUrls={Ev.imageUrls} name={Ev.name} description={Ev.description} dateTime={Ev.dateTime}/>
+                <EventCreate key={Ev.id} category={Ev.category} id={Ev.id} imageUrls={Ev.imageUrls} name={Ev.name} description={Ev.description} dateTime={Ev.dateTime}/>
             ))}
         </div>    
     )

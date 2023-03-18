@@ -5,12 +5,12 @@ import styles from './Event.module.css'
 
 
 
-export const EventCreate:React.FC<Events> = ({imageUrls, name, description, dateTime, id}) =>{
+export const EventCreate:React.FC<Events> = ({imageUrls, name, description, dateTime, id ,category}) =>{
 
 
     return (
         <div className={styles.EventContainer}>
-            <Link to={`/events/${id}`}> <img className={styles.EventImg} src={imageUrls[0]} alt="EventImg" /></Link>
+            <Link to={`/events/${category}/${id}`}> <img className={styles.EventImg} src={imageUrls[0]} alt="EventImg" /></Link>
             <h3 className={styles.EventTitle}>{name}</h3>
             <p className={styles.EventDescription}>{description}</p>
             <div className={styles.dateContainer}>

@@ -1,71 +1,9 @@
 import axios from 'axios';
-import { commets, Events } from '../types/event';
+import { commets, Events, PostFormValues } from '../types/event';
 
-const REACT_APP_API_ROOT = 'back'
+const REACT_APP_API_ROOT = 'https://event.dar-dev.zone/api/v1/event-api'
 
-const COMMENT_APP_API_ROOT = 'http://localhost:8080/comment-api'
-
-export const temp =[
-    {
-        id: "AANd2ds4YdsaBtFDbdsaKLnbdsadSSpV",
-        name: "Music Festival",
-        description: "A music festival featuring local bands",
-        category: "EDUCATIONAL",
-        location: "Central Park",
-        likes: 0,
-        dateTime: "2023-03-11T16:30",
-        organizer: "John Doe",
-        dateOfCreation: "2023-03-13T20:26:09.310",
-        imageUrls: [
-            "/assets/KETTIK.svg"     
-           ]
-    },
-    {
-        id: "AANd24YdsaBtFDbdsaKLnbdsadSSpV",
-        name: "Music Festival",
-        description: "A music festival featuring local bands",
-        category: "EDUCATIONAL",
-        location: "Central Park",
-        likes: 0,
-        dateTime: "2023-03-11T16:30",
-        organizer: "John Doe",
-        dateOfCreation: "2023-03-13T20:26:09.310",
-        imageUrls: [
-            "/assets/KETTIK.svg"     
-           ]
-    },
-  
-    {
-        id: "AANd24YBtFDdsabdsaKLnbdsadSSpV",
-        name: "Music Festival",
-        description: "A music festival featuring local bands",
-        category: "EDUCATIONAL",
-        location: "Central Park",
-        likes: 0,
-        dateTime: "2023-03-11T16:30",
-        organizer: "John Doe",
-        dateOfCreation: "2023-03-13T20:26:09.310",
-        imageUrls: [
-            "/assets/KETTIK.svg"     
-           ]
-    },
-
-    {
-        id: "AANd24YBtFDbdsdsafgaKLnbdsadSSpV",
-        name: "Music Festival",
-        description: "A music festival featuring local bands",
-        category: "EDUCATIONAL",
-        location: "Central Park",
-        likes: 0,
-        dateTime: "2023-03-11T16:30",
-        organizer: "John Doe",
-        dateOfCreation: "2023-03-13T20:26:09.310",
-        imageUrls: [
-            "/assets/KETTIK.svg"     
-           ]
-    }
-    
-  ]
+const  REACT_APP_API_ROOT_COMMENT_API = 'http://localhost:8080/comment-api'
 
 
   export const getEvents = (filter:string) => {
@@ -77,15 +15,13 @@ export const temp =[
   };
 
 
-
-
 export const getEvent = (id:string) =>{
     return axios
         .get<Events>(`${REACT_APP_API_ROOT}/event/${id}`, {})
         .then((res)=>res.data);
 }
 
-export const createEvent = (data:Events) => {
+export const createEvent = (data:PostFormValues) => {
     return axios
       .post(`${REACT_APP_API_ROOT}/event`, data)
       .then((res) => res.data);
@@ -106,7 +42,7 @@ export const createEvent = (data:Events) => {
 
   export const getComments = (id:string) => {
     return axios
-      .get(`${COMMENT_APP_API_ROOT}/event/${id}/comment/all`, {})
+      .get(`${REACT_APP_API_ROOT_COMMENT_API}/event/${id}/comment/all`, {})
       .then((res) => res.data)
       .then<commets[]>((res)=>res.content)
 
@@ -114,7 +50,7 @@ export const createEvent = (data:Events) => {
 
   export const createComment = (id:string,data:commets) => {
     return axios
-      .post(`${COMMENT_APP_API_ROOT}/event/${id}/comment`, data)
+      .post(`${REACT_APP_API_ROOT_COMMENT_API}/event/${id}/comment`, data)
       .then((res) => res.data);
   };
   

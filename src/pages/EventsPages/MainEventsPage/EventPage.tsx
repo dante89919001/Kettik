@@ -1,11 +1,16 @@
 import {  NavLink, Outlet } from "react-router-dom"
 import { Button } from "../../../components/button/Button"
 import { Banner } from "../../../components/layout/banners/Banner"
+import useRequire from "../../../hooks/useRequire"
 import styles from './EventPage.module.css'
 
 
 
 export const EventPage = () =>{
+
+
+    const {events,url,handleChangeFilter} = useRequire('all');
+
 
     return(
         <>
@@ -13,7 +18,7 @@ export const EventPage = () =>{
         <div className={styles.EventPageContainer}>
         <div className={styles.EventPageHeader} >
         <div className={styles.ButtonContainer}>
-           <NavLink to={'/events'} end
+           <NavLink to={'/events/all'} end
         >{({ isActive }) => (
            <Button text={'Последние'} isActive={isActive}/>
           )}</NavLink>
@@ -21,18 +26,18 @@ export const EventPage = () =>{
         >{({ isActive }) => (
            <Button text={'Популярные'} isActive={isActive}/>
           )}</NavLink>
-        <NavLink to={'/events/sport'}
+        <NavLink to={'/events/sports'}
         >{({ isActive }) => (
            <Button text={'Спортивные'} isActive={isActive}/>
           )}</NavLink>
-          <NavLink to={'/events/education'}
+          <NavLink to={'/events/educational'}
           
           >{({ isActive }) => (
           <Button text={'Образовательные'} isActive={isActive}/>
 
             )}</NavLink>
 
-            <NavLink to={'/events/culture'}
+            <NavLink to={`/events/cultural`}
           >{({ isActive }) => (
               <Button text={'Культурные'} isActive={isActive}/>
             )}</NavLink>

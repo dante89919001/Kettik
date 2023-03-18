@@ -6,15 +6,12 @@ export interface Events {
   location?:string;
   likes?:number;
   dateTime:string;
-  organizer?:string;
+  userEmail?:string;
   dateOfCreation?:string;
   imageUrls:string[];
 }
 
-export type PostFormValues = Omit<Events, 'id'>;
-
-
-
+export type PostFormValues = Omit<Events, 'id' | 'dateOfCreation'  | 'likes'>;
 
 
 export type commets = {

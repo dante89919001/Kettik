@@ -32,8 +32,8 @@ export const CommentPostForm: React.FC<Props> = ({onSubmit }) => {
           rules={{
             required: true,
             maxLength: {
-              value: 10,
-              message: "Max length is 20"
+              value: 40,
+              message: "Превышен лимит количества символов комментария"
             }
             
            }} 
@@ -42,6 +42,9 @@ export const CommentPostForm: React.FC<Props> = ({onSubmit }) => {
             <FormInput  placeholder="Напишите ваш комментарий" value={value} name={name} onChange={onChange}/>
           )}
         />
+     
+        { errors.message?.message ?  <>  {errors.message?.message}  <br /> <br /></> : <></> }
+     
       
 
         <Button isActive={isValid} text={'Отправить комментарий'} width={250} disable={!isValid} />

@@ -9,7 +9,7 @@ const useRequire = (filter:string) => {
     const [url,setUrl] = useState(filter);
 
     useEffect(()=>{
-        getEvents(url).then((res)=>{
+        getEvents(`${url}?size=8`).then((res)=>{
                 setEvents(res);
         });
         

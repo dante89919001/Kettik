@@ -1,7 +1,8 @@
 import { useState } from 'react';
 import { Button } from '../../components/button/Button'
+import { EventList } from '../../components/Events/EventList/EventList';
 import { Banner } from '../../components/layout/banners/Banner';
-import { EducationEventsPage } from '../EventsPages/EducationEventsPage/EducationEvenetsPage'
+import useRequire from '../../hooks/useRequire';
 import styles from './MainPage.module.css'
 
 const InitialValueButtons = [
@@ -16,21 +17,40 @@ const InitialValueButtons = [
         { 'Культурные': false}
 
     ]
- 
+const activeUrls = [
+    { 'Последние': 'all'},
 
+    { 'Популярные': 'popular'},
+
+    { 'Спортивные': 'sports'},
+
+    { 'Образовательные': 'educational'},
+
+    { 'Культурные': 'cultural'}
+
+
+]
 export const MainPage = () =>{
+
+
 
     const [activeButtons, setActiveButtons] = useState<object[]>(InitialValueButtons);
 
-
-    const handleChangeFilter = (text:string) => {
-
+    const {events,url,handleChangeFilter} = useRequire(`all`);
+    
+    const handleChangeButton = (text:string) => {
+        let activeUrl;
         let keys:string[] = [];
         let resArray ;
        activeButtons.forEach((item)=>{
      
             keys.push(Object.keys(item)[0])
         
+        })
+        activeUrls.forEach((item)=>{
+            if(Object.keys(item)[0] == text){
+                activeUrl = Object.values(item)[0];                
+            }
         })
         
         resArray = activeButtons.map((item:object, index:number)=>{
@@ -41,6 +61,10 @@ export const MainPage = () =>{
         }
         })
         setActiveButtons(resArray) 
+        if(activeUrl){
+            handleChangeFilter(activeUrl);
+        }
+        
         
     }
     return (
@@ -53,11 +77,12 @@ export const MainPage = () =>{
          {activeButtons.map((button:object, index )=>{
                 const textButton:string = Object.keys(button)[0];
                 const isActive:boolean = Object.values(button)[0];
-                return <Button key={index} text={textButton} isActive={isActive} onClick={handleChangeFilter}/>
+                return <Button key={index} text={textButton} isActive={isActive} onClick={handleChangeButton}/>
          })}
         </div>
         </div>
-             <EducationEventsPage />
+             <EventList gap={40} Events={events}/>
+
         </div>
         </div>
         </>
