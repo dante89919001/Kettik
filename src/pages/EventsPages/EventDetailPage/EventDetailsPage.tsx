@@ -7,8 +7,8 @@ import { Header } from '../../../components/layout/header/Header';
 import { createComment, getComments, getEvent} from '../../../services/events';
 import { commets, Events } from '../../../types/event';
 import styles from './EventsDetailsPage.module.css'
-import getTime from '../../../Utils/useDate';
-import getWeekMonth from '../../../Utils/getWeekMoth';
+import useDate from '../../../hooks/useDate';
+import getWeekMonth from '../../../utils/getWeekMoth';
 
 
 const initialValues =    {
@@ -52,10 +52,9 @@ const initialValuesComments = [
 export const EventDetailsPage = () =>{
     const [event, setEvent] = useState<Events>(initialValues);
     const [comments,setComments] = useState<commets[]>(initialValuesComments);
-    const time = getTime(event.dateTime);
     const month  = getWeekMonth(event.dateTime)
     const { id } = useParams();
-
+    const {time} = useDate(event.dateTime)
     
     useEffect(() => {
         if (!id) {

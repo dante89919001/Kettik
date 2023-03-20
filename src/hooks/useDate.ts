@@ -1,9 +1,12 @@
+import { useMemo } from 'react';
 
-const getTime = (date:string) =>{
-    let newDate = new Date(date)
-    return  `${newDate.getHours()}:${newDate.getMinutes()}`;
-}
+const useDate = (date: string) => {
+  const time = useMemo(() => {
+    const newDate = new Date(date);
+    return `${newDate.getHours()}:${newDate.getMinutes()}`;
+  }, [date]);
 
-export default getTime
+  return { time };
+};
 
-
+export default useDate;
