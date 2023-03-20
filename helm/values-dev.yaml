@@ -1,0 +1,55 @@
+replicaCount: 1
+image:
+  repository: REPOSITORY
+  tag: IMAGE_TAG
+  pullPolicy: Always
+
+nameOverride: dev-frontend-dar-u-group1
+fullnameOverride: dev-frontend-dar-u-group1
+
+configPath: /config
+containerPort: 8080
+service:
+  type: ClusterIP
+  targetPort: 8080
+  port: 80
+
+imagePullSecrets: PULL_SECRET
+
+ingress:
+  enabled: "true"
+  annotations:
+    kubernetes.io/ingress.class: ingress
+    nginx.ingress.kubernetes.io/rewrite-target: /
+    nginx.ingress.kubernetes.io/enable-cors: "true"
+    nginx.ingress.kubernetes.io/cors-allow-methods: "GET"
+    nginx.ingress.kubernetes.io/cors-allow-origin: "*"
+    nginx.ingress.kubernetes.io/cors-allow-credentials: "true"
+    nginx.ingress.kubernetes.io/cors-allow-headers: "DNT,X-CustomHeader,Keep-Alive,User-Agent,X-Requested-With,If-Modified-Since,Cache-Control,Content-Type,Authorization,X-Authentication-Chain,Source"
+    nginx.ingress.kubernetes.io/cors-max-age: "3600"
+    nginx.ingress.kubernetes.io/cors-allow-credentials: "true"
+  path: /
+  hosts:
+    - dar-u-group1.dar-dev.zone
+  tls:
+    - secretName: dar-dev-secret
+      hosts:
+        - dar-u-group1.dar-dev.zone
+
+resources:
+  requests:
+    cpu: 1m
+    memory: 10Mi
+  limits:
+    cpu: 10m
+    memory: 50Mi
+
+nodeSelector: {}
+tolerations: []
+affinity: {}
+
+
+enviroment: dev
+
+env:
+  PORT: 8080

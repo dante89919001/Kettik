@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useCallback, useEffect, useMemo, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { useParams } from 'react-router-dom';
 import { CommentPostForm } from '../../../components/Forms/FromComments/FormComments';
@@ -7,8 +7,8 @@ import { Header } from '../../../components/layout/header/Header';
 import { createComment, getComments, getEvent} from '../../../services/events';
 import { commets, Events } from '../../../types/event';
 import styles from './EventsDetailsPage.module.css'
-import useDate from '../../../hooks/useDate';
 import getWeekMonth from '../../../Utils/getWeekMoth';
+import useDate from '../../../hooks/useDate';
 
 
 const initialValues =    {
@@ -19,7 +19,7 @@ const initialValues =    {
     location: "Central Park",
     likes: 230,
     dateTime: "2023-03-11T16:30",
-    organizer: "John Doe",
+    userEmail: "John Doe",
     dateOfCreation: "2023-03-13T20:26:09.310",
     imageUrls: [
         "/assets/KETTIK.svg"     
@@ -52,46 +52,44 @@ const initialValuesComments = [
 export const EventDetailsPage = () =>{
     const [event, setEvent] = useState<Events>(initialValues);
     const [comments,setComments] = useState<commets[]>(initialValuesComments);
-    const month  = getWeekMonth(event.dateTime)
+    const {time} = useDate(event.dateTime);
     const { id } = useParams();
-    const {time} = useDate(event.dateTime)
+
     
     useEffect(() => {
         if (!id) {
           return;
         }
         getEvent(id).then((res) => {
-            console.log(res);
-            
-            setEvent(res);
+          setEvent(res);
         });
-
-
       }, [id]);
-
+    
       useEffect(() => {
         if (!id) {
           return;
         }
-        getComments(id).then((res)=>{
-            setComments(res);
-        
-        })
+        getComments(id).then((res) => {
+          setComments(res);
+        });
       }, [id]);
-
-
-   
     
-      const handleSubmit = async (data: commets) => {
-        console.log(data);
-        if (!id) {
+      const handleSubmit = useCallback(
+        async (data: commets) => {
+          console.log(data);
+          if (!id) {
             return;
           }
-        createComment(id,data);
-        getComments(id).then((res)=>{
-            setComments(res);
-        });
-    };
+          createComment(id, data);
+        },
+        [id]
+      );
+    
+      const weekMonth = useMemo(
+        () => getWeekMonth(event.dateTime),
+        [event.dateTime]
+      );
+    
 
 
     return (
@@ -102,7 +100,7 @@ export const EventDetailsPage = () =>{
                 <h1 className={styles.EventDetailstitle}>{event.name}</h1>
                 <div className={styles.EventDetailstitleContainer} >
                     <p >{event.category}</p>
-                    <p>{`${time} , ${month} `}</p>
+                    <p>{`${time} , ${weekMonth} `}</p>
                     <div className={styles.EventDetailstitleLikesContainer}>
                     <p>{event.likes}</p>
                     <img  src="/assets/event/like.svg" alt="like" />
@@ -119,7 +117,7 @@ export const EventDetailsPage = () =>{
                 <div className={styles.EventDetailsMainRight}>
                 <div className={styles.EventDate}>  
                     <img src="/assets/event/calendar.svg" alt="calendar" />
-                    <h2 className={styles.EventDateTitle}>{month}</h2>
+                    <h2 className={styles.EventDateTitle}>{weekMonth}</h2>
                     <img src="/assets/event/arrow.svg" alt="arrow" />
                 </div>
                 <div className={styles.EventInfo}>
@@ -127,6 +125,13 @@ export const EventDetailsPage = () =>{
                 <div>
                 <p className={styles.EventInfoTitle}>Организаторы</p>
                 <p className={styles.EventDateDescription}>{event.userEmail}</p>
+                </div>
+                </div>
+                <div className={styles.EventInfo}>
+                <img src="/assets/event/geo.svg" alt="geo" />
+                <div>
+                <p className={styles.EventInfoTitle}>Локация</p>
+                <p className={styles.EventDateDescription}>{event.location}</p>
                 </div>
                 </div>
                 <div className={styles.EventInfo}>
@@ -153,6 +158,5 @@ export const EventDetailsPage = () =>{
   
     
     )
-
-
 }
+

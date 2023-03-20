@@ -32,7 +32,7 @@ const router = createBrowserRouter(
 
   return (
     <div className="App">
-          <RouterProvider router={router} />
+      <RouterProvider router={router} />
     </div>
   );
 }
