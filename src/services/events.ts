@@ -21,10 +21,18 @@ export const getEvent = (id:string) =>{
         .then((res)=>res.data);
 }
 
-export const createEvent = (data:PostFormValues) => {
+export const createEvent = (data:FormData) => {
+
+    
+
     return axios
-      .post(`${REACT_APP_API_ROOT}/event`, data)
-      .then((res) => res.data);
+      .post(`${REACT_APP_API_ROOT}/event`,{
+        data,
+        headers: {
+          'Content-Type': 'multipart/form-data'
+        }
+      })
+      .then((res) => res);
   };
 
   export const updateEvent = (id: string, data:Events) => {

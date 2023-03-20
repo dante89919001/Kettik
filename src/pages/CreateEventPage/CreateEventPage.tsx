@@ -8,9 +8,13 @@ import styles from './CreateEventPage.module.css';
 
 export const CreateEventPage = () =>{
 
-    const handleSubmit = (data:PostFormValues) =>{
-        createEvent(data);
-        console.log(data);
+    const handleSubmit = (data:PostFormValues,photo:File) =>{
+        let formData = new FormData();
+
+        formData.append('event', JSON.stringify(data))
+          formData.append('photo',photo)
+        createEvent(formData);
+        console.log(data,photo);
         
     }
     return (

@@ -28,7 +28,7 @@ export const Header:React.FC<Props> =() =>{
                         >Главная</NavLink>
                     </li>
                     <li >
-                        <NavLink to={'/events'} 
+                        <NavLink to={'/events/all'} 
                         className={({ isActive }) =>
                              isActive ? `${styles.nav_item} ${styles.active}` : `${styles.nav_item}`
                           }

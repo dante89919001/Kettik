@@ -11,8 +11,14 @@ export interface Events {
   imageUrls:string[];
 }
 
-export type PostFormValues = Omit<Events, 'id' | 'dateOfCreation'  | 'likes'>;
-
+export interface PostFormValues {
+  name:string;
+  description:string;
+  category?:string;
+  location:string;
+  dateTime:string;
+  userEmail:string;
+}
 export interface SignUpForm {
   name:string;
   description:string;

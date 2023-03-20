@@ -8,7 +8,7 @@ import { Button } from '../../button/Button';
 
 type Props = {
   initialValues?: SignUpForm;
-  onSubmit: (data: PostFormValues) => void;
+  onSubmit: (data: PostFormValues, photo:File) => void;
 };
 
 const defaultValues: SignUpForm  = {
@@ -38,6 +38,8 @@ export const CreateEventForm: React.FC<Props> = ({ onSubmit }) => {
 
   const [imgUrl, setImageURL] = useState<any>();
 
+  const [photo, setPhoto] = useState()
+
   const handleTypeChange =(categoryV:string)=>{
     setValue('category',categoryV);
     setcategory(categoryV)
@@ -51,9 +53,9 @@ export const CreateEventForm: React.FC<Props> = ({ onSubmit }) => {
       category:values.category,
       userEmail:'ivan@mail.ru',
       dateTime: `${values.date}T${values.time}`,
-      imageUrls:values.imageUrls
     } 
-    onSubmit(obj);
+    if(photo)
+    onSubmit(obj,photo);
     reset();
     setImageURL("")
     setcategory('')
@@ -67,6 +69,7 @@ export const CreateEventForm: React.FC<Props> = ({ onSubmit }) => {
   const download = (event:any) =>{
     if (event.target.files && event.target.files.length) {
       const file = event.target.files[0];
+      setPhoto(file)
       fileReader.readAsDataURL(file);
     } 
    

@@ -8,7 +8,7 @@ import { createComment, getComments, getEvent} from '../../../services/events';
 import { commets, Events } from '../../../types/event';
 import styles from './EventsDetailsPage.module.css'
 import useDate from '../../../hooks/useDate';
-import getWeekMonth from '../../../utils/getWeekMoth';
+import getWeekMonth from '../../../Utils/getWeekMoth';
 
 
 const initialValues =    {
@@ -90,7 +90,6 @@ export const EventDetailsPage = () =>{
         createComment(id,data);
         getComments(id).then((res)=>{
             setComments(res);
-        
         });
     };
 
