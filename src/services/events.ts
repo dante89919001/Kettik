@@ -23,8 +23,6 @@ export const getEvent = (id:string) =>{
 
 export const createEvent = (data:FormData) => {
 
-    
-
     return axios
       .post(`${REACT_APP_API_ROOT}/event`,{
         data,
