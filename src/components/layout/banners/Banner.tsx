@@ -1,5 +1,5 @@
 import { NavLink } from 'react-router-dom';
-import { Button } from '../../button/Button';
+import { Button } from '../../Button/Button';
 import styles from './Banners.module.css'
 
 type Props = {

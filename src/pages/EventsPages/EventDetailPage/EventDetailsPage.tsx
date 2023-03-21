@@ -1,7 +1,7 @@
 import { useCallback, useEffect, useMemo, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { useParams } from 'react-router-dom';
-import { CommentPostForm } from '../../../components/Forms/FromComments/FormComments';
+import { CommentPostForm } from '../../../components/Forms/FormComments/FormComments';
 import { Footer } from '../../../components/layout/footer/Footer';
 import { Header } from '../../../components/layout/header/Header';
 import { createComment, getComments, getEvent} from '../../../services/events';
@@ -9,6 +9,7 @@ import { commets, Events } from '../../../types/event';
 import styles from './EventsDetailsPage.module.css'
 import getWeekMonth from '../../../Utils/getWeekMoth';
 import useDate from '../../../hooks/useDate';
+import { CommentList } from '../../../components/Comments/CommentsList/CommentList';
 
 
 const initialValues =    {
@@ -81,9 +82,10 @@ export const EventDetailsPage = () =>{
             return;
           }
           createComment(id, data);
-        },
-        [id]
-      );
+          getComments(id).then((res) => {
+            setComments(res);
+          });
+        },[id]);
     
       const weekMonth = useMemo(
         () => getWeekMonth(event.dateTime),
@@ -144,11 +146,8 @@ export const EventDetailsPage = () =>{
             <div className={styles.CommentsContainer}>
             <h3 className={styles.CommentsTitle}>Комментарии</h3>
                 <CommentPostForm onSubmit={handleSubmit} />
-            <div>
-                    {comments?.map((comment)=>{
-                            return <p key={comment.id} className={styles.comment}>{comment.message}</p>
-                    })}
-            </div>
+
+                <CommentList comments={comments}/>
               
             </div>
         </div>

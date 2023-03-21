@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { Button } from '../../components/button/Button'
+import { Button } from '../../components/Button/Button'
 import { MainCalendar } from '../../components/Calendar/Calendar';
 import { EventList } from '../../components/Events/EventList/EventList';
 import { Banner } from '../../components/layout/banners/Banner';

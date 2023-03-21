@@ -1,6 +1,6 @@
 import { Controller, useForm } from "react-hook-form";
 import { commets } from "../../../types/event";
-import { Button } from "../../button/Button";
+import { Button } from "../../Button/Button";
 import { FormInput } from "../../ui/FormInput/FormInput";
 
 const defaultValues:commets  = {

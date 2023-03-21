@@ -1,0 +1,27 @@
+.CommentContainer{
+    padding: 10px;
+    margin-top: 15px;
+    border: 1px solid #96C0FF;
+    border-radius: 10px;
+    background-color:#E6F0FF;
+}
+
+.CommentMessage{
+font-family: var(--main-font-family);
+font-style: normal;
+font-weight: 400;
+font-size: 18px;
+line-height: 22px;
+color: #040D1C;
+}
+
+.Commentdate{
+    font-family: var(--main-font-family);
+    font-style: normal;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 22px;
+    color: #0065FF;
+    display: flex;
+    justify-content: flex-end;
+}

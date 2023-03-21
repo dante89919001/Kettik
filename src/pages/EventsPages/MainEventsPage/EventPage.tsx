@@ -1,5 +1,5 @@
 import {  NavLink, Outlet } from "react-router-dom"
-import { Button } from "../../../components/button/Button"
+import { Button } from "../../../components/Button/Button"
 import { Banner } from "../../../components/layout/banners/Banner"
 import useRequire from "../../../hooks/useRequire"
 import { Events } from "../../../types/event"

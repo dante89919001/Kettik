@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import { PostFormValues, SignUpForm } from '../../../types/event';
 import { FormInput, FormInputFile } from '../../ui/FormInput/FormInput';
 import styles from './CreateEventForm.module.css';
-import { Button } from '../../button/Button';
+import { Button } from '../../Button/Button';
 
 
 type Props = {
