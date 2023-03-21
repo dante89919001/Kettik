@@ -1,8 +1,13 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Button } from '../../components/button/Button'
+import { MainCalendar } from '../../components/Calendar/Calendar';
 import { EventList } from '../../components/Events/EventList/EventList';
 import { Banner } from '../../components/layout/banners/Banner';
+import { MainEventsSideBar } from '../../components/MainEventsSideBar/MainEventsSideBarList/MainEventsSideBarLits';
 import useRequire from '../../hooks/useRequire';
+import { temp } from '../../services/events';
+import { Events } from '../../types/event';
+import getDate from '../../Utils/getDate';
 import styles from './MainPage.module.css'
 
 const InitialValueButtons = [
@@ -36,8 +41,14 @@ export const MainPage = () =>{
 
     const [activeButtons, setActiveButtons] = useState<object[]>(InitialValueButtons);
 
-    const {events,url,handleChangeFilter} = useRequire(`all`);
-    
+    const {events,url,handleChangeFilter, setEvents} = useRequire(`all`,'size=8');
+
+    const [activeEvents, setActiveEvents] = useState(events);
+
+    const {events:sideBarEvents} = useRequire(`popular`, 'size=5');
+
+
+
     const handleChangeButton = (text:string) => {
         let activeUrl;
         let keys:string[] = [];
@@ -64,12 +75,35 @@ export const MainPage = () =>{
         if(activeUrl){
             handleChangeFilter(activeUrl);
         }
-        
-        
+        setActiveEvents(events);
     }
+    
+   
+    useEffect(()=>{
+        setActiveEvents(events)
+
+    },[events])
+
+
+    const handlCalendarChange = (v: Date) =>{        
+        let today:string; 
+        let ms = +v+ 21600000 ;
+        let tempDate
+        tempDate = new Date(ms)
+        today = tempDate.toISOString().slice(0,10);
+        let resObj:Events[] = [];
+        events.map((event) =>{
+            if(getDate(event.dateTime) == today){
+                resObj.push(event)
+            }
+        })
+        setActiveEvents(resObj);
+    }
+   
+
     return (
         <>
-            <Banner isMain={true}/>
+        <Banner isMain={true}/>
         <div className={styles.MainPageContainer}>
         <div className={styles.MainEventsContainer}>
         <div className={styles.MainPageHeader} >
@@ -81,7 +115,18 @@ export const MainPage = () =>{
          })}
         </div>
         </div>
-             <EventList gap={40} Events={events}/>
+             <EventList gap={40} Events={activeEvents}/>
+
+        </div>
+        <div className={styles.Sidebar}>
+            <div className={styles.CalendarContainer}>
+            <MainCalendar  onChange={handlCalendarChange}/>
+
+            </div>
+            <div className={styles.EventsSideBarContainer}>
+            <MainEventsSideBar Events={sideBarEvents}/>
+
+            </div>
 
         </div>
         </div>

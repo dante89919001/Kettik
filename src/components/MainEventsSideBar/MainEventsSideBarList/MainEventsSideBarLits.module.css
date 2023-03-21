@@ -1,0 +1,18 @@
+.EventListContainer{
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 40px; 
+    flex-direction:column;
+}
+
+.EventText{
+    font-family: var(--main-font-family);
+    font-style: normal;
+    font-weight: 800;
+    font-size: 22px;
+    line-height: 30px;
+    color: #0065FF;
+    padding: 20px 0;
+}
+

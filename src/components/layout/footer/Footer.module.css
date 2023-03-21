@@ -55,7 +55,7 @@
   .nav_item {
     text-decoration: none;
     list-style: none;
-    font-family: 'Source Sans Pro', sans-serif;
+    font-family: var(--main-font-family);
     font-style: normal;
     font-weight: 400;
     font-size: 18px;
@@ -78,7 +78,7 @@
 .lang{
     background-color:transparent;
     border: none;
-    font-family: 'Suisse Intl', sans-serif;    
+    font-family: var(--main-font-family);
     font-style: normal;
     font-weight: 400;
     font-size: 16px;

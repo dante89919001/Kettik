@@ -60,3 +60,65 @@ export const createEvent = (data:FormData) => {
       .then((res) => res.data);
   };
   
+
+  export const temp =[
+    {
+        id: "AANd2ds4YdsaBtFDbdsaKLnbdsadSSpV",
+        name: "Music Festival",
+        description: "A music festival featuring local bands",
+        category: "EDUCATIONAL",
+        location: "Central Park",
+        likes: 0,
+        dateTime: "2023-03-15T16:30",
+        organizer: "John Doe",
+        dateOfCreation: "2023-03-13T20:26:09.310",
+        imageUrls: [
+            "/assets/KETTIK.svg"     
+           ]
+    },
+    {
+        id: "AANd24YdsaBtFDbdsaKLnbdsadSSpV",
+        name: "Music Festival",
+        description: "A music festival featuring local bands",
+        category: "EDUCATIONAL",
+        location: "Central Park",
+        likes: 0,
+        dateTime: "2023-03-11T16:30",
+        organizer: "John Doe",
+        dateOfCreation: "2023-03-13T20:26:09.310",
+        imageUrls: [
+            "/assets/KETTIK.svg"     
+           ]
+    },
+  
+    {
+        id: "AANd24YBtFDdsabdsaKLnbdsadSSpV",
+        name: "Music Festival",
+        description: "A music festival featuring local bands",
+        category: "EDUCATIONAL",
+        location: "Central Park",
+        likes: 0,
+        dateTime: "2023-03-21T16:30",
+        organizer: "John Doe",
+        dateOfCreation: "2023-03-13T20:26:09.310",
+        imageUrls: [
+            "/assets/KETTIK.svg"     
+           ]
+    },
+
+    {
+        id: "AANd24YBtFDbdsdsafgaKLnbdsadSSpV",
+        name: "Music Festival",
+        description: "A music festival featuring local bands",
+        category: "EDUCATIONAL",
+        location: "Central Park",
+        likes: 0,
+        dateTime: "2023-03-11T16:30",
+        organizer: "John Doe",
+        dateOfCreation: "2023-03-13T20:26:09.310",
+        imageUrls: [
+            "/assets/KETTIK.svg"     
+           ]
+    }
+    
+  ]

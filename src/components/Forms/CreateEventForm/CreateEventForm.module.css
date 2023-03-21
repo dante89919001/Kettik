@@ -1,5 +1,5 @@
 .titleForm{
-    font-family: 'Nunito Sans';
+    font-family: var(--main-font-family);
     font-style: normal;
     font-weight: 700;
     font-size: 24px;
@@ -9,7 +9,7 @@
     margin-bottom: 15px;
 }
 .labelText {
-    font-family: 'Nunito Sans';
+    font-family: var(--main-font-family);
 font-style: normal;
 font-weight: 700;
 font-size: 18px;

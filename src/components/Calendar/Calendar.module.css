@@ -1,0 +1,13 @@
+.Calendar{
+    background-color:#E6F0FF;
+}
+
+.CalendarTitle{
+  font-family: var(--main-font-family);
+  font-style: normal;
+  font-weight: 800;
+  font-size: 22px;
+  line-height: 30px;
+  color: #0065FF;
+  margin-bottom: 34px;
+}

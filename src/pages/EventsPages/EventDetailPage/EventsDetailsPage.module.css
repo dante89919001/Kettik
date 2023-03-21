@@ -10,7 +10,7 @@
 
 .EventDetailstitle{
     
-    font-family: 'Nunito Sans';
+    font-family: var(--main-font-family);
     font-style: normal;
     font-weight: 700;
     font-size: 40px;
@@ -22,7 +22,7 @@
     padding:6px 0 ;
     display: flex;
     gap: 20px;
-    font-family: 'Nunito Sans';
+    font-family: var(--main-font-family);
     font-style: normal;
     font-weight: 600;
     font-size: 14px;
@@ -61,7 +61,7 @@
 }
 
 .EventDetailsSubtitle{
-    font-family: 'Nunito Sans';
+    font-family: var(--main-font-family);
     font-style: normal;
     font-weight: 700;
     font-size: 32px;
@@ -70,7 +70,7 @@
 }
 .EventDetailsDescription{
     margin-top: 5px;
-    font-family: 'Nunito Sans';
+    font-family: var(--main-font-family);
 font-style: normal;
 font-weight: 400;
 font-size: 24px;
@@ -85,7 +85,7 @@ color: #000000;
 
 }
 .CommentsTitle{
-    font-family: 'Nunito Sans';
+    font-family: var(--main-font-family);
     font-style: normal;
     font-weight: 700;
     font-size: 24px;
@@ -105,7 +105,7 @@ color: #000000;
     gap: 70px;
 }
 .EventDateTitle{
-    font-family: 'Nunito Sans';
+    font-family: var(--main-font-family);
     font-style: normal;
     font-weight: 700;
     font-size: 18px;
@@ -115,7 +115,7 @@ color: #000000;
 
 }
 .EventDateDescription{
-    font-family: 'Nunito Sans';
+    font-family: var(--main-font-family);
     font-style: normal;
     font-weight: 400;
     font-size: 16px;
@@ -132,7 +132,7 @@ color: #000000;
     gap: 21px;
 }
 .EventInfoTitle{
-    font-family: 'Nunito Sans';
+    font-family: var(--main-font-family);
 font-style: normal;
 font-weight: 700;
 font-size: 16px;
@@ -140,7 +140,7 @@ line-height: 22px;
 color: #040D1C;
 }
 .comment{
-    font-family: 'Nunito Sans';
+    font-family: var(--main-font-family);
 font-style: normal;
 font-weight: 700;
 font-size: 24px;

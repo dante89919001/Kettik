@@ -1,0 +1,86 @@
+.EventContainer{
+    max-width: 360px;
+    width: 100%;
+    gap: 10px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    
+}
+
+.EventCategory {
+    font-size: 15px;
+}
+
+.EventLikes {
+    font-size: 15px;
+}
+
+.ColumnText {
+    max-width: 243px;
+    width: 100%;
+    padding: 10px;
+}
+
+.EventTitle{
+    margin-top: 10px;
+    font-family: var(--main-font-family);
+    color: #040D1C;
+    font-size: 18px;
+    font-weight: 600;
+    line-height: 23px;
+    font-style: normal;
+    text-overflow: ellipsis;
+}
+
+.description{
+    display: flex;
+    justify-content: space-between;
+}
+.EventImg{
+    max-width: 107px;
+    height: 77px;    
+    cursor: pointer;
+    padding: 0px;
+}
+
+.EventDescription{
+    font-family: var(--main-font-family);
+    color: #040D1C;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 18px;
+    font-style: normal;
+}
+
+.buttonLike{
+    text-decoration: none;
+    background-color:transparent;
+    border:none;
+    cursor: pointer;
+}
+
+.LinkTitle {
+    text-decoration: none;
+}
+
+.iconLike {
+    width: 15px;
+    height: 15px;
+}
+
+.Column {
+    float: left;
+    width: 66%;
+    text-align: left;
+}
+
+.ColumnRight {
+    float: left;
+    width: 17%;
+    text-align: right;
+}
+
+.TitleRow {
+    margin-top: 10%;
+}
