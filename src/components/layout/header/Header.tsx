@@ -1,10 +1,14 @@
 import { Link, NavLink } from 'react-router-dom';
+import { useUserContext } from '../../../providers/UserContext';
 import styles from './Header.module.css'
 
 
 type Props = {};
 
 export const Header:React.FC<Props> =() =>{
+
+    const { username } = useUserContext();
+
 
     return(
         <header className={styles.header}>
@@ -46,12 +50,11 @@ export const Header:React.FC<Props> =() =>{
                         <button className={styles.lang}>ru</button>
                     </li>
                     <li >
-                        <NavLink to={'/profile'} 
+                       {username ? <NavLink to={'/profile'}>{username}</NavLink> :<NavLink to={'/profile'} 
                         className={({ isActive }) =>
                         isActive ? `${styles.nav_item} ${styles.active}` : `${styles.nav_item}`
-                     }
-
-                        ><img src="/assets/header/profile_icon.svg" alt="profile" /></NavLink>
+                     }>
+                            <img src="/assets/header/profile_icon.svg" alt="profile" /></NavLink>}
                     </li>
                 </ul>
             </nav>

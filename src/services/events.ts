@@ -1,14 +1,14 @@
 import axios from 'axios';
-import { commets, Events, PostFormValues } from '../types/event';
+import { commets, Events } from '../types/event';
 
-const REACT_APP_API_ROOT = 'https://event.dar-dev.zone/api/v1/event-api'
+const eventApi = process.env.REACT_APP_API_ROOT_EVENT as string
 
-const  REACT_APP_API_ROOT_COMMENT_API = 'http://localhost:8080/comment-api'
+const commentApi = process.env.REACT_APP_API_ROOT_COMMENT as string
 
 
   export const getEvents = (filter:string) => {
     return axios
-      .get(`${REACT_APP_API_ROOT}/event/${filter}`, {})
+      .get(`${eventApi}/event/${filter}`, {})
       .then((res) => res.data)
       .then<Events[]>((res)=>res.content)
 
@@ -17,14 +17,14 @@ const  REACT_APP_API_ROOT_COMMENT_API = 'http://localhost:8080/comment-api'
 
 export const getEvent = (id:string) =>{
     return axios
-        .get<Events>(`${REACT_APP_API_ROOT}/event/${id}`, {})
+        .get<Events>(`${eventApi}/event/${id}`, {})
         .then((res)=>res.data);
 }
 
 export const createEvent = (data:FormData) => {
 
     return axios
-      .post(`${REACT_APP_API_ROOT}/event`,{
+      .post(`${eventApi}/event`,{
         data,
         headers: {
           'Content-Type': 'multipart/form-data'
@@ -35,28 +35,27 @@ export const createEvent = (data:FormData) => {
 
   export const updateEvent = (id: string, data:Events) => {
     return axios
-      .put(`${REACT_APP_API_ROOT}/event/${id}`, data)
+      .put(`${eventApi}/event/${id}`, data)
       .then((res) => res.data);
   };
 
   export const deleteEvent = (id:string) =>{
     return axios
-        .delete<Events>(`${REACT_APP_API_ROOT}/event/${id}`, {})
+        .delete<Events>(`${eventApi}/event/${id}`, {})
         .then((res)=>res);
 }
 
 
   export const getComments = (id:string) => {
     return axios
-      .get(`${REACT_APP_API_ROOT_COMMENT_API}/event/${id}/comment/all`, {})
+      .get(`${commentApi}/event/${id}/comment/all`, {})
       .then((res) => res.data)
       .then<commets[]>((res)=>res.content)
-
   };
 
   export const createComment = (id:string,data:commets) => {
     return axios
-      .post(`${REACT_APP_API_ROOT_COMMENT_API}/event/${id}/comment`, data)
+      .post(`${commentApi}/event/${id}/comment`, data)
       .then((res) => res.data);
   };
   
@@ -70,7 +69,7 @@ export const createEvent = (data:FormData) => {
         location: "Central Park",
         likes: 0,
         dateTime: "2023-03-15T16:30",
-        organizer: "John Doe",
+        userEmail: "John Doe",
         dateOfCreation: "2023-03-13T20:26:09.310",
         imageUrls: [
             "/assets/KETTIK.svg"     
@@ -84,7 +83,7 @@ export const createEvent = (data:FormData) => {
         location: "Central Park",
         likes: 0,
         dateTime: "2023-03-11T16:30",
-        organizer: "John Doe",
+        userEmail: "John Doe",
         dateOfCreation: "2023-03-13T20:26:09.310",
         imageUrls: [
             "/assets/KETTIK.svg"     
@@ -93,13 +92,13 @@ export const createEvent = (data:FormData) => {
   
     {
         id: "AANd24YBtFDdsabdsaKLnbdsadSSpV",
-        name: "Music Festival",
+        name: "DADSDA321",
         description: "A music festival featuring local bands",
         category: "EDUCATIONAL",
         location: "Central Park",
         likes: 0,
         dateTime: "2023-03-21T16:30",
-        organizer: "John Doe",
+        userEmail: "dias@mail.ru",
         dateOfCreation: "2023-03-13T20:26:09.310",
         imageUrls: [
             "/assets/KETTIK.svg"     
@@ -108,13 +107,13 @@ export const createEvent = (data:FormData) => {
 
     {
         id: "AANd24YBtFDbdsdsafgaKLnbdsadSSpV",
-        name: "Music Festival",
+        name: "dasdasd",
         description: "A music festival featuring local bands",
         category: "EDUCATIONAL",
         location: "Central Park",
         likes: 0,
         dateTime: "2023-03-11T16:30",
-        organizer: "John Doe",
+        userEmail: "dias@mail.ru",
         dateOfCreation: "2023-03-13T20:26:09.310",
         imageUrls: [
             "/assets/KETTIK.svg"     

@@ -1,0 +1,54 @@
+.LoginFormContainer{
+    max-width: 320px;
+    width: 100%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 23px;
+    margin-top: 84px;
+}
+.LoginFormTitle{
+    font-family: var(--main-font-family);
+    font-style: normal;
+    font-weight: 600;
+    font-size: 32px;
+    line-height: 40px;
+    text-align: center;
+    color: #303A4D;
+}
+.LoginFormSubtitle{
+    font-family: var(--main-font-family);
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 20px;
+    text-align: center;
+    color: #303A4D;
+}
+.labelText {
+    font-family: var(--main-font-family);
+font-style: normal;
+font-weight: 700;
+font-size: 18px;
+line-height: 25px;
+color: #303A4D;
+} 
+.passwordContainer{
+    display: flex;
+    justify-content: space-between;
+    
+}
+.resetPasswordTitle{
+    max-width: 320px;
+    width: 100%;
+    text-align: center;
+    margin-bottom: 28px;
+}
+a {
+    text-decoration: none;
+    color:#0065FF ;
+}
+.registerLink{
+    text-align: center;
+    
+}

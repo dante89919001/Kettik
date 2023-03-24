@@ -1,4 +1,4 @@
-import React, { ChangeEvent, HTMLInputTypeAttribute } from 'react';
+import React, { ChangeEvent, HTMLInputTypeAttribute, useState } from 'react';
 
 import styles from './FormInput.module.css';
 
@@ -36,6 +36,7 @@ export const FormInput: React.FC<Props> = ({
       handlChange(e)
     }
   }
+
   return (
     <div className={styles.FormInput__formControl}>
       <label className={classNameLabel} >{label}</label>
@@ -71,6 +72,9 @@ export const FormInputFile: React.FC<Props> = ({
       handlChange(e)
     }
   }
+
+
+
   return (
     <div className={styles.FormInputFileContainer}>
       <label className={classNameLabel} > 
@@ -83,7 +87,60 @@ export const FormInputFile: React.FC<Props> = ({
         onChange={(e:ChangeEvent)=>{changeEvents(e)}}
         value={value}
       />
+  
       </label>
+    </div>
+  );
+};
+
+
+export const FormInputPassword: React.FC<Props> = ({
+  label,
+  name,
+
+  onChange,
+  value,
+  placeholder,
+  id,
+  className ,
+  classNameLabel = "FormInput__label",
+  handlChange,
+}) => {
+  const changeEvents = (e:ChangeEvent) =>{
+    if(onChange){
+      onChange(e)
+    }
+    if(handlChange){
+      handlChange(e)
+    }
+  }
+  const [isVisible,setIsVisible] = useState(false)
+  const [type,setType] = useState('password')
+  const handleVisible =() =>{
+      if(isVisible){
+        setType('password');
+        setIsVisible(false);
+      }else{
+        setType('text');
+        setIsVisible(true);
+      }
+      
+  }
+  return (
+    <div className={styles.FormInput__formControl}>
+      <label className={classNameLabel} >{label}</label>
+      
+      <input
+        placeholder={placeholder}
+        className={className?className:styles.FormInput__input}
+        name={name}
+        type={type}
+        onChange={(e:ChangeEvent)=>{changeEvents(e)}}
+        value={value}
+      />
+      <img src="/assets/form/eye.svg" alt="eye" onClick={handleVisible} className={styles.eye} />
+    
+   
     </div>
   );
 };

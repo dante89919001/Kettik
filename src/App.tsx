@@ -11,9 +11,18 @@ import { MainPage } from './pages/Main/MainPage';
 import { EventsDetailsPage } from './pages/EventsPages/EventsDetailPage.tsx/EventsDetailsPage';
 import { EventDetailsPage } from './pages/EventsPages/EventDetailPage/EventDetailsPage';
 import { CreateEventPage } from './pages/CreateEventPage/CreateEventPage';
+import { AuthPage } from './pages/AuthPage/AuthPage';
+import { LoginForm } from './components/Forms/LoginForm/LoginForm';
+import { RegisterForm } from './components/Forms/RegisterForm/RegisterForm';
+import { UserContextProvider, useUserContext } from './providers/UserContext';
+import { ProfilePage } from './pages/ProfilePage/ProfilePage';
+import { RequireAuth } from './Utils/RequireAuth';
 
-function App() {
- 
+function App() {    
+  
+  
+
+
 const router = createBrowserRouter(
   createRoutesFromElements(
     <>
@@ -22,19 +31,35 @@ const router = createBrowserRouter(
       <Route path="/events" element={<EventPage />}>
       <Route  path='/events/:category' element={<EventsDetailsPage />}/>
       </Route>
+        <Route path="/profile"  element={
+          <RequireAuth>
+            <ProfilePage />
+          </RequireAuth>
+        }/>
       </Route>
       <Route path="/events/:category/:id" element={<EventDetailsPage />} />
       <Route path="/events/create" element={<CreateEventPage/>}/>
+      <Route path="/auth" element={<AuthPage />}>
+      <Route index  element={<LoginForm />}/>
+      <Route path="/auth/register"  element={<RegisterForm />}/>
+      </Route>
 
     </>
   )
 );
 
+
+
   return (
+
+    <UserContextProvider> 
     <div className="App">
       <RouterProvider router={router} />
     </div>
+    </UserContextProvider>
   );
+
+
 }
 
 export default App;

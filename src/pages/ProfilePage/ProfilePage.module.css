@@ -1,0 +1,88 @@
+.ProfileContainer{
+    max-width: 1280px;
+    width: 100%;
+    margin: 0 auto;
+    margin-top: 57px;
+
+}
+.ProfileInfoContainer{
+    display: flex;
+    justify-content: space-between;
+    max-width: 350px;
+    width: 100%;
+    background: #FFFFFF;
+    border: 1px solid #FFFFFF;
+    align-items: center;
+    padding: 10px 14px;
+    gap: 21px;
+}
+.ProfileInfo{
+    display: flex;
+    flex-direction: column;
+    max-width: 283px;
+    width: 100%;
+}
+.profileInfoTitle{
+    font-family: var(--main-font-family);
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 22px;
+    color: #040D1C;
+}
+.profileInfoLabel{
+    font-family: var(--main-font-family);
+    color: #040D1C;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 22px;
+}
+.ProfileHeader{
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    margin: 50px 0;
+    align-items:center;
+
+}
+.profileImgContainer{
+    display: flex;
+    align-items:center;
+    max-width: 250px;
+    width: 100%;
+    justify-content: space-between;
+
+}
+.ProfileImg{
+    width: 80px;
+    height: 80px;
+    border: 1px solid #96C0FF;
+    border-radius:50%;
+}
+.ProfileHeaderTitle{
+    font-family: var(--main-font-family);
+    font-style: normal;
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 25px;
+    color: #040D1C;
+}
+.ProfileEventsContainer{
+
+    margin-top: 80px;
+}
+.ProfileEventsHeaderTitle{
+    font-family: var(--main-font-family);
+    font-style: normal;
+    font-weight: 700;
+    font-size: 40px;
+    line-height: 55px;
+    color: #030B18;
+}
+.CreateProfileEvent{
+    margin-top: 41px;
+    display: flex;
+    flex-direction: column;
+    gap: 22px;
+}

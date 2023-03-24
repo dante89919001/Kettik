@@ -1,0 +1,22 @@
+.AuthContainer{
+    max-width: 1280px;
+    width: 100%;
+    margin: 0 auto;
+}
+.AuthHeader{
+    height: 80px;
+    padding-top: 21px;
+}
+
+
+
+.logo{
+    font-family: var(--main-font-family);
+    font-style: normal;
+    text-decoration: none;
+    font-size: 34px;
+    line-height: 44px;
+    font-weight: 700;
+    color: #0065FF;
+    margin-right: 36px;
+}

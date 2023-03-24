@@ -1,6 +1,5 @@
 import { useMemo } from 'react';
 import useDate from '../../../hooks/useDate';
-import getDate from '../../../Utils/getDate';
 import getWeekMonth from '../../../Utils/getWeekMoth';
 import styles from './CreateComment.module.css'
 

@@ -41,7 +41,6 @@ export const EventsDetailsPage = () => {
     return (
         <>
                 <EventList Events={events}/>          
-
         </>    
     )
 }

@@ -10,6 +10,7 @@ import styles from './EventsDetailsPage.module.css'
 import getWeekMonth from '../../../Utils/getWeekMoth';
 import useDate from '../../../hooks/useDate';
 import { CommentList } from '../../../components/Comments/CommentsList/CommentList';
+import { useUserContext } from '../../../providers/UserContext';
 
 
 const initialValues =    {
@@ -92,6 +93,7 @@ export const EventDetailsPage = () =>{
         [event.dateTime]
       );
     
+      const { username} = useUserContext();
 
 
     return (
@@ -145,7 +147,7 @@ export const EventDetailsPage = () =>{
             </div>
             <div className={styles.CommentsContainer}>
             <h3 className={styles.CommentsTitle}>Комментарии</h3>
-                <CommentPostForm onSubmit={handleSubmit} />
+                {username && <CommentPostForm onSubmit={handleSubmit} />}
 
                 <CommentList comments={comments}/>
               
