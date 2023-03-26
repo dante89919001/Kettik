@@ -1,16 +1,17 @@
 import { useCallback, useEffect, useMemo, useState } from 'react';
 import { useForm } from 'react-hook-form';
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import { CommentPostForm } from '../../../components/Forms/FormComments/FormComments';
 import { Footer } from '../../../components/layout/footer/Footer';
 import { Header } from '../../../components/layout/header/Header';
-import { createComment, getComments, getEvent} from '../../../services/events';
+import { createComment, deleteEvent, getComments, getEvent} from '../../../services/events';
 import { commets, Events } from '../../../types/event';
 import styles from './EventsDetailsPage.module.css'
 import getWeekMonth from '../../../Utils/getWeekMoth';
 import useDate from '../../../hooks/useDate';
 import { CommentList } from '../../../components/Comments/CommentsList/CommentList';
 import { useUserContext } from '../../../providers/UserContext';
+import { Button } from '../../../components/Button/Button';
 
 
 const initialValues =    {
@@ -21,7 +22,7 @@ const initialValues =    {
     location: "Central Park",
     likes: 230,
     dateTime: "2023-03-11T16:30",
-    userEmail: "John Doe",
+    userEmail: "dias@mail.ru",
     dateOfCreation: "2023-03-13T20:26:09.310",
     imageUrls: [
         "/assets/KETTIK.svg"     
@@ -94,6 +95,12 @@ export const EventDetailsPage = () =>{
       );
     
       const { username} = useUserContext();
+      const navigate = useNavigate()
+
+      const handleDeleteEvent = () =>{
+          deleteEvent(event.id);
+          navigate('/profile')
+        }
 
 
     return (
@@ -142,7 +149,13 @@ export const EventDetailsPage = () =>{
                 <img src="/assets/event/time.svg" alt="time" />
                 <p className={styles.EventInfoTitle}>{time}</p>
                 </div>
+             
+                {username == event.userEmail &&    <div className={styles.DeleteButtonContainer}>
+                <Button isActive={true} text={"Удалить Ивент"} onClick={handleDeleteEvent}></Button>
+                </div>}
+             
                 </div>
+            
               
             </div>
             <div className={styles.CommentsContainer}>

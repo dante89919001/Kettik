@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { Controller, useForm } from 'react-hook-form';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useNavigate } from 'react-router-dom';
 import { authService } from '../../..';
 import { RegisterFormData } from '../../../types/auth';
 import { Button } from '../../Button/Button';
@@ -18,8 +18,8 @@ const defaultValues: RegisterFormData  = {
 export const RegisterForm = () =>{
 
     const [sid, setSid] = useState('');
-
-  
+    const navigate = useNavigate()
+    
     const {
         register,
         control,
@@ -39,7 +39,9 @@ export const RegisterForm = () =>{
                     authService.signUp(user.userEmail).then((res)=>{
                         console.log(res);
                         setSid(res.sid)
-                    })
+                    }).catch((e) => {
+                        alert(e.response?.data?.message);
+                      })
                 }
 
 
@@ -51,8 +53,9 @@ export const RegisterForm = () =>{
                     }).then((res) => {
                         console.log(res);
                         authService.persistTokens(res);
-                      });
-                
+                        alert('вы успешно зарегистрировались!');
+                        navigate('/auth');
+                      })
                 }
             }
     

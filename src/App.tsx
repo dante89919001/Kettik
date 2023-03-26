@@ -38,7 +38,11 @@ const router = createBrowserRouter(
         }/>
       </Route>
       <Route path="/events/:category/:id" element={<EventDetailsPage />} />
-      <Route path="/events/create" element={<CreateEventPage/>}/>
+      <Route path="/events/create" element={
+          <RequireAuth>
+        <CreateEventPage />
+          </RequireAuth>
+        }/>
       <Route path="/auth" element={<AuthPage />}>
       <Route index  element={<LoginForm />}/>
       <Route path="/auth/register"  element={<RegisterForm />}/>
@@ -47,8 +51,6 @@ const router = createBrowserRouter(
     </>
   )
 );
-
-
 
   return (
 

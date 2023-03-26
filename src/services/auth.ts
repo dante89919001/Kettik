@@ -162,6 +162,7 @@ export class AuthService {
   };
 
   public persistProfile = (profile: Profile) => {
+    
     localStorage.setItem(PROFILE_STORAGE_KEY, JSON.stringify(profile));
   };
 

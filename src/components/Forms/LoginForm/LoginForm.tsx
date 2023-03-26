@@ -31,7 +31,7 @@ export const LoginForm: React.FC = ()=>{
         } = useForm<LoginFormData>({defaultValues , mode:"all"} )
 
 
-        const { changeUsername } = useUserContext();
+        const { changeUsername,username } = useUserContext();
 
         const location = useLocation();
 
@@ -55,7 +55,6 @@ export const LoginForm: React.FC = ()=>{
               authService.persistProfile(r);
               changeUsername(r.email);
               navigate('/');
-
             })
             .catch((e) => {
               alert(e.response?.data?.message);
@@ -128,3 +127,7 @@ export const LoginForm: React.FC = ()=>{
         </div>
     )
 }
+function getProfile() {
+  throw new Error('Function not implemented.');
+}
+
