@@ -95,8 +95,8 @@ export const RegisterForm = () =>{
                 rules={{
                 required: true,
                 maxLength: {
-                    value: 20,
-                    message: "Email должен быть не более 20 символов"
+                    value: 30,
+                    message: "Email должен быть не более 30 символов"
                 },  pattern: {
                     value: /^([A-Za-z0-9_\-\.])+\@([A-Za-z0-9_\-\.])+\.([A-Za-z]{2,4})$/,
                     message: "Некоректное значение Email"

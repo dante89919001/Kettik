@@ -33,6 +33,9 @@ import {
     const handleUsernameChange = (v: string) => {
       setUsername(v);
     };
+
+    console.log(username);
+    
   
     return (
       <UserContext.Provider

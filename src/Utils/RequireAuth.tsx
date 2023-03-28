@@ -6,12 +6,15 @@ type Props = {
 }
 
 export const RequireAuth:React.FC<Props> =({children}) =>{
-    const { username } = useUserContext();
+    const { username } = useUserContext()
+    
     const location = useLocation();
     console.log(username);
+    console.log(location);
+    
 
     if(!username) {
-        return <Navigate to={'/auth'} state={{from:location}} />
+        return <Navigate to={'/auth'} state={{from:location}}  />
     }
 
     return children;

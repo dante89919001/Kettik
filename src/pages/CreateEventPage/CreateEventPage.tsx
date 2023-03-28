@@ -11,10 +11,10 @@ export const CreateEventPage = () =>{
     const handleSubmit = (data:PostFormValues,photo:File) =>{
         let formData = new FormData();
         formData.append('event', JSON.stringify(data))
-        formData.append('photo',photo)
+        formData.append('photos',photo)
         createEvent(formData);
-        console.log(data,photo);
-        
+        console.log(formData.getAll('event'));
+        console.log(formData.getAll('photos'));
     }
     return (
         <>

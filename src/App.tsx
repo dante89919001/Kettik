@@ -29,7 +29,8 @@ const router = createBrowserRouter(
       <Route path="/" element={<Layout/>}>
       <Route index element={<MainPage />}/>
       <Route path="/events" element={<EventPage />}>
-      <Route  path='/events/:category' element={<EventsDetailsPage />}/>
+      <Route  index  element={<EventsDetailsPage />}/>
+      <Route  path='/events/:category'  element={<EventsDetailsPage />}/>
       </Route>
         <Route path="/profile"  element={
           <RequireAuth>
@@ -39,9 +40,9 @@ const router = createBrowserRouter(
       </Route>
       <Route path="/events/:category/:id" element={<EventDetailsPage />} />
       <Route path="/events/create" element={
-          <RequireAuth>
+  
         <CreateEventPage />
-          </RequireAuth>
+      
         }/>
       <Route path="/auth" element={<AuthPage />}>
       <Route index  element={<LoginForm />}/>

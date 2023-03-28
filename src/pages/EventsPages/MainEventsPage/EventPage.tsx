@@ -19,7 +19,7 @@ export const EventPage = () =>{
         <div className={styles.EventPageContainer}>
         <div className={styles.EventPageHeader} >
         <div className={styles.ButtonContainer}>
-           <NavLink to={'/events/all'} end
+           <NavLink to={'/events/all'}  
         >{({ isActive }) => (
            <Button text={'Последние'} isActive={isActive}/>
           )}</NavLink>
@@ -43,9 +43,7 @@ export const EventPage = () =>{
               <Button text={'Культурные'} isActive={isActive}/>
             )}</NavLink>
         </div>
-        <div className={styles.SearchContainer}>
-            <input type="text" />   
-        </div>
+
         </div>
             <Outlet/>
         </div>

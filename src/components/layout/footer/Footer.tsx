@@ -33,7 +33,7 @@ export const Footer = () =>{
                         >Главная</NavLink>
                     </li>
                     <li >
-                        <NavLink to={'/events/all'} 
+                        <NavLink to={'/events'} 
                         className={({ isActive }) =>
                              isActive ? `${styles.nav_item} ${styles.active}` : `${styles.nav_item}`
                           }

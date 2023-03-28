@@ -17,7 +17,7 @@ export const ProfilePage = () =>{
 
     useEffect(() => {
         getEvents('all').then((res) => {
-           const eventsFilter = temp.filter((item)=>{
+           const eventsFilter = res.filter((item)=>{
                 if(item.userEmail == username){
                     return item;
                 }

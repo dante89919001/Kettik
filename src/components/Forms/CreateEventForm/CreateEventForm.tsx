@@ -4,6 +4,7 @@ import { PostFormValues, SignUpForm } from '../../../types/event';
 import { FormInput, FormInputFile } from '../../ui/FormInput/FormInput';
 import styles from './CreateEventForm.module.css';
 import { Button } from '../../Button/Button';
+import { useUserContext } from '../../../providers/UserContext';
 
 
 type Props = {
@@ -40,6 +41,9 @@ export const CreateEventForm: React.FC<Props> = ({ onSubmit }) => {
 
   const [photo, setPhoto] = useState()
 
+  const { username} = useUserContext();
+
+
   const handleTypeChange =(categoryV:string)=>{
     setValue('category',categoryV);
     setcategory(categoryV)
@@ -49,9 +53,9 @@ export const CreateEventForm: React.FC<Props> = ({ onSubmit }) => {
     const obj:PostFormValues =  {
       name:values.name,
       description:values.description,
-      location:values.location,
       category:values.category,
-      userEmail:'ivan@mail.ru',
+      location:values.location,
+      userEmail:username,
       dateTime: `${values.date}T${values.time}`,
     } 
     if(photo)
@@ -150,9 +154,9 @@ export const CreateEventForm: React.FC<Props> = ({ onSubmit }) => {
       />
       <p className={styles.titleForm}>Выбрать категорию</p>
       <div className={styles.buttonContainer}>
-      <Button width={120} isActive={category=='sports'} text={'Спортивные'} onClick={()=>{handleTypeChange("sports")}}/>
-      <Button width={130} isActive={category=='cultural'} text={'Культурные'} onClick={()=>{handleTypeChange("cultural")}}/>
-      <Button width={180} isActive={category=='educational'} text={'Образовательные'} onClick={()=>{handleTypeChange("educational")}}/>
+      <Button width={120} isActive={category=='SPORTS'} text={'Спортивные'} onClick={()=>{handleTypeChange("SPORTS")}}/>
+      <Button width={130} isActive={category=='CULTURAL'} text={'Культурные'} onClick={()=>{handleTypeChange("CULTURAL")}}/>
+      <Button width={180} isActive={category=='EDUCATIONAL'} text={'Образовательные'} onClick={()=>{handleTypeChange("EDUCATIONAL")}}/>
       </div>
       <p className={styles.titleForm}>Время и Место</p>
       <Controller

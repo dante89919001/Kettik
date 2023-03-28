@@ -9,7 +9,6 @@ export const Header:React.FC<Props> =() =>{
 
     const { username } = useUserContext();
 
-
     return(
         <header className={styles.header}>
             <div className={styles.header_inner_logo}>
@@ -32,7 +31,7 @@ export const Header:React.FC<Props> =() =>{
                         >Главная</NavLink>
                     </li>
                     <li >
-                        <NavLink to={'/events/all'} 
+                        <NavLink to={'/events'} 
                         className={({ isActive }) =>
                              isActive ? `${styles.nav_item} ${styles.active}` : `${styles.nav_item}`
                           }
