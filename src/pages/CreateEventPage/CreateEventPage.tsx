@@ -7,13 +7,7 @@ import styles from './CreateEventPage.module.css';
 export const CreateEventPage = () => {
     const handleSubmit = (data: PostFormValues, photo: File) => {
         let formData = new FormData();
-        const json = JSON.stringify({
-            name: 'event_1',
-            description: 'description_1',
-            category: 'CULTURAL',
-            location: 'location_1',
-            dateTime: '2023-04-05T14:30',
-        });
+        const json = JSON.stringify(data);
         const blob = new Blob([json], { type: 'application/json' });
         formData.append('event', blob, '');
         formData.append('photos', photo, photo.name);
