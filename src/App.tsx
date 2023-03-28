@@ -17,6 +17,7 @@ import { RegisterForm } from './components/Forms/RegisterForm/RegisterForm';
 import { UserContextProvider, useUserContext } from './providers/UserContext';
 import { ProfilePage } from './pages/ProfilePage/ProfilePage';
 import { RequireAuth } from './Utils/RequireAuth';
+import AboutTeam from './pages/Team/AboutTeam';
 
 function App() {    
   
@@ -37,6 +38,8 @@ const router = createBrowserRouter(
             <ProfilePage />
           </RequireAuth>
         }/>
+        <Route path="/about" element={<AboutTeam />}/>
+
       </Route>
       <Route path="/events/:category/:id" element={<EventDetailsPage />} />
       <Route path="/events/create" element={
