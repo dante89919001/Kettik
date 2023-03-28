@@ -18,6 +18,7 @@ import { UserContextProvider, useUserContext } from './providers/UserContext';
 import { ProfilePage } from './pages/ProfilePage/ProfilePage';
 import { RequireAuth } from './Utils/RequireAuth';
 import AboutTeam from './pages/Team/AboutTeam';
+import { EditEventPage } from './pages/EditEventPage/EditEventPage';
 
 function App() {    
   
@@ -42,22 +43,21 @@ const router = createBrowserRouter(
 
       </Route>
       <Route path="/events/:category/:id" element={<EventDetailsPage />} />
-      <Route path="/events/create" element={
-  
-        <CreateEventPage />
-      
-        }/>
+      <Route path="/events/create" element={<CreateEventPage />}/>
+      <Route path="/events/edit/:id" element={
+      <RequireAuth>
+      <EditEventPage />
+      </RequireAuth>
+      }/>
       <Route path="/auth" element={<AuthPage />}>
       <Route index  element={<LoginForm />}/>
       <Route path="/auth/register"  element={<RegisterForm />}/>
       </Route>
-
     </>
   )
 );
 
   return (
-
     <UserContextProvider> 
     <div className="App">
       <RouterProvider router={router} />

@@ -3,7 +3,7 @@ export interface Events {
   name:string;
   description:string;
   category?:string;
-  location?:string;
+  location:string;
   likes?:number;
   dateTime:string;
   userEmail?:string;

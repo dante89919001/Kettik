@@ -49,7 +49,8 @@ export const Header:React.FC<Props> =() =>{
                         <button className={styles.lang}>ru</button>
                     </li>
                     <li >
-                       {username ? <NavLink to={'/profile'}>{username}</NavLink> :<NavLink to={'/profile'} 
+                    {username ? <NavLink to={'/profile'}  className={({ isActive }) =>
+                        isActive ? `${styles.nav_item} ${styles.active}` : `${styles.nav_item}`} >{username}</NavLink> :<NavLink to={'/profile'} 
                         className={({ isActive }) =>
                         isActive ? `${styles.nav_item} ${styles.active}` : `${styles.nav_item}`
                      }>

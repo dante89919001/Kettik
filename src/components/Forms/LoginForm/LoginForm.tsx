@@ -53,7 +53,7 @@ export const LoginForm: React.FC = ()=>{
             .then((r) => {
               authService.persistProfile(r);
               changeUsername(r.email);
-              navigate('/');
+              navigate(fromPage);
             })
             .catch((e) => {
               alert(e.response?.data?.message);
@@ -63,7 +63,7 @@ export const LoginForm: React.FC = ()=>{
 
         
         if(username){
-          navigate('/profile')
+          navigate(fromPage)
         }
 
         
@@ -122,7 +122,7 @@ export const LoginForm: React.FC = ()=>{
             <NavLink to={'/auth'} >Забыли пароль?</NavLink>
 
             </div>
-            <Button  isActive={isValid} text={'Вперед!'} width={320}></Button>
+            <Button  isActive={isValid} text={'Вперед!'} width={320} type={'submit'}></Button>
             </form>
             <span className={styles.registerLink}>Нет аккаунта?  <NavLink to={'/auth/register'}>Зарегистрируйтесь здесь.</NavLink> </span>
 

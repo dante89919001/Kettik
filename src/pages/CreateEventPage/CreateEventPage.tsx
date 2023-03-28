@@ -12,6 +12,7 @@ export const CreateEventPage = () => {
         formData.append('event', blob, '');
         formData.append('photos', photo, photo.name);
         createEvent(formData);
+        alert('Ивент успешно создан')
         console.log(data, photo);
     };
     return (

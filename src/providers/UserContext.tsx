@@ -34,7 +34,6 @@ import {
       setUsername(v);
     };
 
-    console.log(username);
     
   
     return (

@@ -159,7 +159,7 @@ export const RegisterForm = () =>{
                 <FormInputPassword label="OTP" classNameLabel={styles.labelText} value={value} name={name} onChange={onChange}  className="" placeholder='otp'  />
             )}
           />}
-                <Button  isActive={isValid} text={'Регистрация!'} width={320} ></Button>
+                <Button  isActive={isValid} text={'Регистрация!'} width={320} type={'submit'} ></Button>
                 </form>
                 <span className={styles.registerLink}>Есть аккаунт?  <NavLink to={'/auth'}>Войдите здесь.</NavLink> </span>
     

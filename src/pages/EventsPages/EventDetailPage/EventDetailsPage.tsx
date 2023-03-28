@@ -83,10 +83,13 @@ export const EventDetailsPage = () =>{
           if (!id) {
             return;
           }
-          createComment(id, data);
-          getComments(id).then((res) => {
-            setComments(res);
+          createComment(id, data).then((res)=>{
+              getComments(id).then((res) => {
+                  setComments(res);
+                  
+              });
           });
+
         },[id]);
     
       const weekMonth = useMemo(
@@ -98,10 +101,19 @@ export const EventDetailsPage = () =>{
       const navigate = useNavigate()
 
       const handleDeleteEvent = () =>{
-          deleteEvent(event.id);
-          navigate('/profile')
+
+          const isDelete = window.confirm('Вы действительно хотите удалить ивент?')
+          if(isDelete){
+            deleteEvent(event.id);
+            navigate('/profile')
+          }else{
+            return
+          }
         }
 
+      const handleEditEvent = () =>{
+          navigate(`/events/edit/${id}`)
+        }
 
     return (
         <>
@@ -151,7 +163,16 @@ export const EventDetailsPage = () =>{
                 </div>
              
                 {username == event.userEmail &&    <div className={styles.DeleteButtonContainer}>
+                <div className={styles.buttonContainer}>
+                <Button isActive={true} text={"Редактировать Ивент"} onClick={handleEditEvent}></Button>
+
+                </div>
+
+                <div className={styles.buttonContainer}>
                 <Button isActive={true} text={"Удалить Ивент"} onClick={handleDeleteEvent}></Button>
+
+                </div>
+
                 </div>}
              
                 </div>

@@ -1,29 +1,44 @@
 import { Controller, useForm } from 'react-hook-form';
 import React, { useState } from 'react';
-import { PostFormValues, SignUpForm } from '../../../types/event';
-import { FormInput, FormInputFile } from '../../ui/FormInput/FormInput';
-import styles from './CreateEventForm.module.css';
-import { Button } from '../../Button/Button';
+
+import styles from './EditEventForm.module.css';
+import { Events, PostFormValues, SignUpForm } from '../../../types/event';
 import { useUserContext } from '../../../providers/UserContext';
+import { FormInput } from '../../ui/FormInput/FormInput';
+import { Button } from '../../Button/Button';
+import useDate from '../../../hooks/useDate';
+
+
 
 
 type Props = {
-  initialValues?: SignUpForm;
-  onSubmit: (data: PostFormValues, photo:File) => void;
+  Event: Events;
+  onSubmit: (data: PostFormValues) => void;
 };
 
-const defaultValues: SignUpForm  = {
-  name: "",
-  description: "",
-  category:"",
-  location:"", 
-  date:`${new Date().toString()}`,
-  organizer:"ivan@mai.ru",
-  imageUrls: [],
-  time:"",
-};
 
-export const CreateEventForm: React.FC<Props> = ({ onSubmit }) => {
+
+export const EditEventForm: React.FC<Props> = ({ onSubmit , Event }) => {
+
+  const {time} = useDate(Event.dateTime);
+  
+
+
+  const[category, setcategory]=useState(Event.category);
+
+  const { username} = useUserContext();
+    const defaultValues: SignUpForm  = {
+        name: Event.name,
+        description: Event.description,
+        category:Event.category,
+        location:Event.location, 
+        date:`${Event.dateTime.slice(0,10)}`,
+        time:time,
+        organizer:"ivan@mai.ru",
+        imageUrls:[''],
+      };
+      
+
   const {
     register,
     control,
@@ -35,13 +50,7 @@ export const CreateEventForm: React.FC<Props> = ({ onSubmit }) => {
     getValues
   } = useForm<SignUpForm>({defaultValues , mode:"all"} )
 
-  const[category, setcategory]=useState("");
 
-  const [imgUrl, setImageURL] = useState<any>();
-
-  const [photo, setPhoto] = useState()
-
-  const { username} = useUserContext();
 
 
   const handleTypeChange =(categoryV:string)=>{
@@ -58,26 +67,9 @@ export const CreateEventForm: React.FC<Props> = ({ onSubmit }) => {
       userEmail:username,
       dateTime: `${values.date}T${values.time}`,
     } 
-    if(photo)
-    onSubmit(obj,photo);
-    reset();
-    setImageURL("")
-    setcategory('')
+    onSubmit(obj);
   }
-  // Предпоказ IMG 
-  const fileReader = new FileReader();
-  fileReader.onloadend = () => {
-    setImageURL(fileReader.result);
-  };
 
-  const download = (event:any) =>{
-    if (event.target.files && event.target.files.length) {
-      const file = event.target.files[0];
-      setPhoto(file)
-      fileReader.readAsDataURL(file);
-    } 
-   
-  }
 
   return (
     <form onSubmit={handleSubmit(handleSuccess)}>
@@ -99,7 +91,7 @@ export const CreateEventForm: React.FC<Props> = ({ onSubmit }) => {
 
         render={({ field: { onChange, value, name } }) => (
     
-          <FormInput label="Название Мероприятия" classNameLabel={styles.labelText} value={value} name={name} onChange={onChange} type ="text" className="" placeholder='Название' />
+          <FormInput label="Название Мероприятия" classNameLabel={styles.labelText} value={value} name={name} onChange={onChange} type ="text" className="" placeholder='Название'  />
         
 
         )}
@@ -127,32 +119,7 @@ export const CreateEventForm: React.FC<Props> = ({ onSubmit }) => {
 
         )}
       />
-      <Controller
-        control={control}
-        name="imageUrls"
-        
-        rules={{
-          required: true,   
-         
-         }} 
-        render={({ field: { onChange, value, name } }) => (
-          <>
-        <p  className={styles.labelText}>Загрузить фотографию</p>
-
-          <div className={styles.fileContainer}>
-            <div className={styles.imgBack} style={{backgroundImage:`url(${imgUrl})`}}>
-            </div>
-            <FormInputFile label='Загрузить фотографию'  value={value} classNameLabel={styles.labelFile} name={name} onChange={onChange} handlChange={download} type="file" className={styles.fileInput}/>
-
-
-          </div>
-           
-  
-          </>
-        
-        )}
-      />
-      <p className={styles.titleForm}>Выбрать категорию</p>
+     
       <div className={styles.buttonContainer}>
       <Button width={120} isActive={category=='SPORTS'} text={'Спортивные'} onClick={()=>{handleTypeChange("SPORTS")}}/>
       <Button width={130} isActive={category=='CULTURAL'} text={'Культурные'} onClick={()=>{handleTypeChange("CULTURAL")}}/>
@@ -201,7 +168,7 @@ export const CreateEventForm: React.FC<Props> = ({ onSubmit }) => {
       />
  
       </div>
-      <Button text={'Создать Мероприятие'} disable={!isValid} isActive={isValid} width={200}type={'submit'} />
+      <Button text={'Редактировать мероприятие'} disable={!isValid} isActive={isValid} width={250}type={'submit'} />
     </form>
   );
 };

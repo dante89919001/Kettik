@@ -29,7 +29,7 @@ export const MainEventsSideBar:React.FC<Props> = ({Events}) =>{
             <p className={styles.EventText}>Что-то интересное</p>
             <div className={styles.EventListContainer}>
             {Events.map((Ev)=>(
-                <CreateEventSideBar key={Ev.id} category={Ev.category} id={Ev.id} imageUrls={Ev.imageUrls} name={Ev.name} likes={Ev.likes} description={""} dateTime={""} />
+                <CreateEventSideBar key={Ev.id} location={Ev.location} category={Ev.category} id={Ev.id} imageUrls={Ev.imageUrls} name={Ev.name} likes={Ev.likes} description={""} dateTime={""} />
             ))}
         </div>  
         </div>

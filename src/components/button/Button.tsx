@@ -9,7 +9,7 @@ type Props={
     type?: 'submit' | 'reset' | 'button' | undefined;
 }
 
-export const Button:React.FC<Props> = ({text ,isActive = false,onClick ,width , disable,type}) =>{
+export const Button:React.FC<Props> = ({text ,isActive = false,onClick ,width , disable,type = 'button'}) =>{
     const handlerAlertsClick =(e: EventTarget & HTMLButtonElement) =>{
             if(onClick){
                 onClick(e.children[0].innerHTML)

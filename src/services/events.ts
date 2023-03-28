@@ -22,7 +22,7 @@ export const createEvent = (data: FormData) => {
     return axios.post(`${eventApi}/event`, data).then((res) => res);
 };
 
-export const updateEvent = (id: string, data: Events) => {
+export const updateEvent = (id: string, data: FormData) => {
     return axios.put(`${eventApi}/event/${id}`, data).then((res) => res.data);
 };
 

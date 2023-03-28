@@ -47,7 +47,7 @@ export const CommentPostForm: React.FC<Props> = ({onSubmit }) => {
      
       
 
-        <Button isActive={isValid} text={'Отправить комментарий'} width={250} disable={!isValid} />
+        <Button isActive={isValid} text={'Отправить комментарий'} width={250} disable={!isValid} type={'submit'} />
           
       </form>
     );

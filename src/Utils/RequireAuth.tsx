@@ -9,8 +9,7 @@ export const RequireAuth:React.FC<Props> =({children}) =>{
     const { username } = useUserContext()
     
     const location = useLocation();
-    console.log(username);
-    console.log(location);
+
     
 
     if(!username) {
