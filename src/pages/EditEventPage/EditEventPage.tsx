@@ -20,6 +20,7 @@ export const EditEventPage = () => {
         }
         
         getEvent(id).then((res) => {
+            
           setEvent(res);
         });
       }, [id]);
@@ -49,7 +50,7 @@ export const EditEventPage = () => {
                     </NavLink>
                 </div>
 
-                {event && <EditEventForm onSubmit={handleSubmit} Event={event} /> }
+                {event &&  <EditEventForm onSubmit={handleSubmit} Event={event} /> }
             </div>
         </>
     );
